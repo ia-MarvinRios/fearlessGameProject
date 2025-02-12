@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eaa615c6c6afda34cb3914201d165a7e
+guid: 245e77f70758b1a4b997e7dd58ea685b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Madera
-    second: {fileID: 2100000, guid: b48f306b49269b942b79a083f64967e9, type: 2}
+      name: brown_floor
+    second: {fileID: 2100000, guid: d78cc016ca5b83a4b9c22d601280a84e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: casa
-    second: {fileID: 2100000, guid: 230b54fc73308f7459eeee6c54bbaa42, type: 2}
+      name: red_rug
+    second: {fileID: 2100000, guid: 635ea627f988d6740a1ff55a80c55e4b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: rojo
-    second: {fileID: 2100000, guid: 13e48ecc716c31f4ab79e77c98b8822c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface6
-    second: {fileID: 2100000, guid: efbd1102618d113448027eec61a66a76, type: 2}
+      name: walls
+    second: {fileID: 2100000, guid: e638cd6705a631c48bdff5910b55dcc1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
