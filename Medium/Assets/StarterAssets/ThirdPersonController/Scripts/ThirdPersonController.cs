@@ -81,6 +81,7 @@ namespace StarterAssets
 
         // player
         private float _speed;
+        private bool _isDancing = false;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
@@ -97,6 +98,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDTwerk;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -159,6 +161,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Dance();
         }
 
         private void LateUpdate()
@@ -173,6 +176,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDTwerk = Animator.StringToHash("TwerkAnim");
         }
 
         private void GroundedCheck()
@@ -209,6 +213,24 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        private void Dance()
+        {
+            if (_hasAnimator)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) && (_input.move == Vector2.zero && _input.jump == false))
+                {
+                    _animator.SetTrigger(_animIDTwerk);
+                    _isDancing = true;
+                }
+                if (_isDancing == true && (_input.jump == true || _input.move != Vector2.zero))
+                {
+                    Debug.Log("SE HA CUMPLIDO ALGUNA CONDICIÓN.");
+                    _animator.SetTrigger(_animIDTwerk);
+                    _isDancing= false;
+                }
+            }
         }
 
         private void Move()
