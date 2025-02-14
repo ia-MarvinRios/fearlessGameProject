@@ -14,15 +14,20 @@ namespace StarterAssets
         public bool sprint;
         public bool dance;
 
-        private bool isPaused = false;
-        public GameObject pauseMenu;
-
         [Header("Movement Settings")]
         public bool analogMovement;
 
         [Header("Mouse Cursor Settings")]
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
+
+        private bool isPaused = false;
+        public GameObject pauseMenu;
+
+        private void Awake()
+        {
+            SetCursorState(cursorLocked);
+        }
 
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
@@ -53,6 +58,7 @@ namespace StarterAssets
             DanceInput(value.isPressed);
         }
 #endif
+
 
         public void MoveInput(Vector2 newMoveDirection)
         {
@@ -92,27 +98,12 @@ namespace StarterAssets
             }
         }
 
-        private void TogglePauseMenu()
+        public void TogglePauseMenu()
         {
             isPaused = !isPaused;
-
-            if (pauseMenu != null)
-            {
-                pauseMenu.SetActive(isPaused);
-            }
-
+            pauseMenu.SetActive(isPaused);
             Time.timeScale = isPaused ? 0f : 1f;
-
-            // Asegurar que el cursor siempre se desbloquee al pausar
-            if (isPaused)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                SetCursorState(true);
-            }
+            SetCursorState(!isPaused);
         }
 
         private void SetCursorState(bool locked)
@@ -122,4 +113,5 @@ namespace StarterAssets
             Cursor.visible = !locked;
         }
     }
+
 }

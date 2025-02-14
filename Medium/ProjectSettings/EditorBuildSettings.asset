@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: aeadcd9e57af16b40b43ba1cf12cc56c
   - enabled: 1
-    path: Assets/Rios/Rios_witchLevel.unity
+    path: Assets/Scenes/Rios/Rios_witchLevel.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,

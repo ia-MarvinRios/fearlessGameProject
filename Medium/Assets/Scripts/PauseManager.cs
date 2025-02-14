@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using StarterAssets;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pauseMenu; // Asigna aquí el menú de pausa en el Inspector
+    public GameObject pauseMenu;
     private bool isPaused = false;
+
+    public StarterAssetsInputs playerInputs;
 
     void Update()
     {
@@ -31,6 +32,7 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        playerInputs.TogglePauseMenu();
     }
 
     public void MainMenu()
