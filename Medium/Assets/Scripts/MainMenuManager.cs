@@ -8,19 +8,11 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     public TMP_Dropdown scenesDropdown;
-    private int sceneIndex;
 
     void Awake()
     {
         Time.timeScale = 1f;
         Debug.Log("Tiempo reanudado: " + Time.timeScale);
-    }
-    void Start()
-    {
-        int selectedIndex = scenesDropdown.value;
-        string selectedText = scenesDropdown.options[selectedIndex].text;
-
-        Debug.Log("Índice: " + selectedIndex + " Texto: " + selectedText);
     }
 
     public void PlayGame()
@@ -37,6 +29,14 @@ public class MainMenuManager : MonoBehaviour
 
             case 2:
                 SceneManager.LoadScene("Rios_witchLevel");
+                break;
+
+            case 3:
+                SceneManager.LoadScene("cementeryLevel");
+                break;
+
+            case 4:
+                SceneManager.LoadScene("cementeryLevel");
                 break;
 
             default:

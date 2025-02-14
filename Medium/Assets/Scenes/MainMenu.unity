@@ -1692,6 +1692,10 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Sol
       m_Image: {fileID: 0}
+    - m_Text: Martinez
+      m_Image: {fileID: 0}
+    - m_Text: Santos
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
