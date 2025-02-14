@@ -36,7 +36,11 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case 4:
-                SceneManager.LoadScene("cementeryLevel");
+                SceneManager.LoadScene("cobertizo");
+                break;
+
+            case 5:
+                SceneManager.LoadScene("Fachada");
                 break;
 
             default:
