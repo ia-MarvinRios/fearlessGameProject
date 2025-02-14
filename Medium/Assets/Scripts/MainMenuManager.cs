@@ -28,7 +28,7 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case 2:
-                SceneManager.LoadScene("Rios_witchLevel");
+                SceneManager.LoadScene("mayoneso");
                 break;
 
             case 3:
