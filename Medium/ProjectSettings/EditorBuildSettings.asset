@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Rios/Rios_witchLevel.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Sol/mayoneso.unity
+    path: Assets/Scenes/Sol/Atico.unity
     guid: 2ecc4b506eb450747bdc46c8e6e8fad8
   - enabled: 1
     path: Assets/Scenes/Martinez/cementeryLevel.unity

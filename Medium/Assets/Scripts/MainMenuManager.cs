@@ -28,7 +28,7 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case 2:
-                SceneManager.LoadScene("mayoneso");
+                SceneManager.LoadScene("Atico");
                 break;
 
             case 3:
