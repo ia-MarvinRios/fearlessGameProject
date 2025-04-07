@@ -247,7 +247,7 @@
                 {
                     "name": "",
                     "id": "c8fcd86e-dcfd-4f88-8e93-b638cdbf3320",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -269,7 +269,7 @@
                 {
                     "name": "",
                     "id": "b7d59ca0-0263-4a07-b38b-e45b3ba29aad",
-                    "path": "<DualShockGamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -290,6 +290,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f650e093-5fab-48f5-8a49-9ac3e3fe46f3",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Twerk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "937ee6ef-7074-411c-9212-ce1081aafe30",
                     "path": "<Keyboard>/f2",
                     "interactions": "",
@@ -301,11 +312,33 @@
                 },
                 {
                     "name": "",
+                    "id": "9ce4ec04-5721-4b68-aec6-b49838ca6d16",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "HipHop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "477e5941-80bd-4976-af3e-6504ac8d256f",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcb60a81-bdbc-4970-bed5-f5a71ec50161",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
