@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerChaser : MonoBehaviour
 {
     [SerializeField] private float detectionRadius = 15f;
     [SerializeField] private Vector3 radiusCenter = Vector3.zero;
-    [SerializeField] private float chasingSpeed = 3f;
     [SerializeField] private string chasingAnimation = "Name";
+    private NavMeshAgent agent;
 
     Animator animator;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        SphereCollider trigger = gameObject.AddComponent<SphereCollider>();
+        agent = GetComponent<NavMeshAgent>();
+        SphereCollider trigger = gameObject.AddComponent<SphereCollider>();   
 
         trigger.isTrigger = true;
         trigger.radius = detectionRadius;
@@ -31,7 +33,7 @@ public class PlayerChaser : MonoBehaviour
             animator.SetBool("PlayerDetected", true);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(chasingAnimation))
             {
-                transform.position += transform.forward * chasingSpeed * Time.deltaTime;
+                agent.destination = other.transform.position;
             }
         }
     }
