@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 4075226820437099169}
   - component: {fileID: 5715913872654121763}
   - component: {fileID: 4821482582345601899}
-  - component: {fileID: 6124361641327737961}
   - component: {fileID: 7203998466842448752}
   m_Layer: 8
   m_Name: PLAYER
@@ -217,6 +216,7 @@ MonoBehaviour:
   CrouchSpeed: 1.5
   RotationSpeed: 1
   SpeedChangeRate: 10
+  analogMovement: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
@@ -230,6 +230,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4248736572769191260}
   TopClamp: 89
   BottomClamp: -89
+  _pauseInput: 0
 --- !u!114 &4821482582345601899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,29 +248,6 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
---- !u!114 &6124361641327737961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532026463582908942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
-  look: {x: 0, y: 0}
-  jump: 0
-  sprint: 0
-  crouch: 0
-  twerk: 0
-  hiphop: 0
-  pause: 0
-  analogMovement: 0
-  cursorLocked: 1
-  cursorInputForLook: 1
 --- !u!114 &7203998466842448752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -297,67 +275,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 2690c379-f54d-45be-a724-414123833eb4
     m_ActionName: Player/Look[/Mouse/delta,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 8c4abdf8-4099-493a-aa1a-129acec7c3df
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: InputSprint
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 980e881e-182c-404c-8cbf-3d09fdb48fef
     m_ActionName: Player/Sprint[/Keyboard/leftShift,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
@@ -365,15 +295,51 @@ MonoBehaviour:
     m_ActionId: b7f80971-942f-46ef-9cb7-7e55965124ee
     m_ActionName: Player/Crouch[/Keyboard/leftCtrl,/XInputControllerWindows/leftShoulder]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5715913872654121763}
+        m_TargetAssemblyTypeName: StarterAssets.FirstPersonController, Assembly-CSharp
+        m_MethodName: Twerk
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0148a84b-e131-4e19-bff3-19ab2bad4f34
     m_ActionName: Player/Twerk[/Keyboard/f1,/XInputControllerWindows/rightStickPress]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5715913872654121763}
+        m_TargetAssemblyTypeName: StarterAssets.FirstPersonController, Assembly-CSharp
+        m_MethodName: HipHop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 642c7e02-e4b0-40bc-825a-0915e82b7907
     m_ActionName: Player/HipHop[/Keyboard/f2,/XInputControllerWindows/leftStickPress]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5715913872654121763}
+        m_TargetAssemblyTypeName: StarterAssets.FirstPersonController, Assembly-CSharp
+        m_MethodName: PauseInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e1fe6c5c-823f-414e-a94c-2f79141a7bd7
     m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0

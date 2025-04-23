@@ -29,8 +29,9 @@ public class GuiManager : MonoBehaviour
     private void Start()
     {
         isPaused = false;
-
         inputScript = playerInputs.GetComponent<FirstPersonController>();
+
+        pauseMenuCanvas.enabled = false;
     }
 
     void Update()
@@ -38,25 +39,27 @@ public class GuiManager : MonoBehaviour
         PauseGame();
     }
 
-    public void PlayGame()
+    public void ResumeGame()
     {
-        Debug.Log("Jugar");
+        isPaused = false;
+        Debug.Log("Juego REANUDADO.");
+        pauseMenuCanvas.enabled = false;
+        Time.timeScale = 1f;
     }
 
     public void PauseGame()
     {
-        if (inputScript.PauseInput())
+        if (inputScript._pauseInput == true)
         {
             if (!isPaused)
             {
                 isPaused = true;
                 Debug.Log("Juego PAUSADO.");
+                pauseMenuCanvas.enabled = true;
+                Time.timeScale = 0f;
             }
-            else if (isPaused)
-            {
-                isPaused = false;
-                Debug.Log("Juego REANUDADO.");
-            }
+
+            ResumeGame();
         }
     }
 }
