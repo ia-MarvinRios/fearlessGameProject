@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 124204405}
   - component: {fileID: 124204406}
+  - component: {fileID: 124204407}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -174,6 +175,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   interInput: 0
+--- !u!114 &124204407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124204404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f37b4c5d8f6e24cbda38119e6126a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambienceLoopMorning: {fileID: 8300000, guid: 7e6d26572e9b1414e893b0a844b78574, type: 3}
+  aLMorningVolume: 1
+  ambienceLoopNight: {fileID: 0}
+  aLNightolume: 0.582
+  mixer: {fileID: 24300002, guid: f8f8a2147cd5ff84abb9a03be4c5fdfe, type: 2}
 --- !u!1 &135409720
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &193759914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,7 +942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &968183119
 RectTransform:
   m_ObjectHideFlags: 0
