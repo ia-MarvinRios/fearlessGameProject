@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 #endif
 
 namespace StarterAssets
@@ -92,7 +90,9 @@ namespace StarterAssets
 		float _jumpInput = 0;
 		float _crouchInput = 0;
 		float _sprintInput = 0;
-		public bool _pauseInput = false;
+		internal bool _canLook = true;
+
+		[SerializeField] GuiManager guiMan;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -199,7 +199,7 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			// if there is an input
-			if (_lookInput.sqrMagnitude >= _threshold)
+			if (_lookInput.sqrMagnitude >= _threshold && _canLook == true)
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
@@ -426,10 +426,20 @@ namespace StarterAssets
 		{
 			if (callbackContext.performed)
 			{
-				_pauseInput = true;
+				guiMan.PauseGame();
 			}
-			_pauseInput = false;
 		}
+		public void InteractionInput(InputAction.CallbackContext callbackContext)
+        {
+            if (callbackContext.performed)
+            {
+                guiMan.interInput = true;
+            }
+			if (callbackContext.canceled)
+			{
+				guiMan.interInput = false;
+			}
+        }
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
