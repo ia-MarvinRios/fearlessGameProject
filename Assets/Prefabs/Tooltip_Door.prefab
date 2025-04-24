@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1415867692089074058}
   - component: {fileID: 8404663217978271260}
   - component: {fileID: 2199809160783859501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Img_DoorOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 5778666272442622424}
   - component: {fileID: 5544954315307824881}
   - component: {fileID: 2075517274669658710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Txt_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 487314530216255266}
   - component: {fileID: 4413801306479341032}
   - component: {fileID: 2106096300939821061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tooltip_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -42.431717, y: 1.164}
+  m_AnchoredPosition: {x: -42.4317, y: 1.1640015}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2356723955606020598
