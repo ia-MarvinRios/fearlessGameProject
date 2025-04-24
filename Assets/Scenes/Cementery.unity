@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f37b4c5d8f6e24cbda38119e6126a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambienceLoopMorning: {fileID: 8300000, guid: 7e6d26572e9b1414e893b0a844b78574, type: 3}
-  aLMorningVolume: 1
+  ambienceLoopMorning: {fileID: 8300000, guid: 9763dbbcf1e03794abac8f2a94cf283b, type: 3}
+  aLMorningVolume: 0.3
   ambienceLoopNight: {fileID: 0}
   aLNightolume: 0.582
   mixer: {fileID: 24300002, guid: f8f8a2147cd5ff84abb9a03be4c5fdfe, type: 2}
