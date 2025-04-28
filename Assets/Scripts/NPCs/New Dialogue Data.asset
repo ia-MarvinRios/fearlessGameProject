@@ -23,8 +23,12 @@ MonoBehaviour:
       nextDialogueId: 2
     - id: 1
       text: Vengo por asuntos de trabajo.
-      nextDialogueId: 2
+      nextDialogueId: 3
   - id: 2
+    phase: 1
+    text: "Ya veo... Suerte con ello. Debe ser dif\xEDcil."
+    options: []
+  - id: 3
     phase: 1
     text: "\xBFBuscas algo en especial en este lugar?"
     options: []

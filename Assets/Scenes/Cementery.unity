@@ -171,14 +171,11 @@ MonoBehaviour:
   inGameCanvas: {fileID: 193759913}
   pauseMenuCanvas: {fileID: 968183118}
   lowerPanel: {fileID: 881743003}
+  textArea: {fileID: 1200156635}
   buttonsLayout: {fileID: 1218204799}
   optionButton: {fileID: 2280420720803321958, guid: 6f98155b0b14bb043b83f1b42759b9c2,
     type: 3}
   playerInputs: {fileID: 1721313359}
-  interactableLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  interInput: 0
 --- !u!114 &124204407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,6 +701,11 @@ PrefabInstance:
       propertyPath: guiMan
       value: 
       objectReference: {fileID: 124204406}
+    - target: {fileID: 5715913872654121763, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: interactableLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7203998466842448752, guid: 92fe505fc44238e409ca8d0e073a7e89,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
@@ -1351,10 +1353,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 20
+    m_Right: 20
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -2152,11 +2154,6 @@ PrefabInstance:
       objectReference: {fileID: 124204406}
     - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}
-      propertyPath: textArea
-      value: 
-      objectReference: {fileID: 1200156635}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
       propertyPath: currentPhase
       value: 1
       objectReference: {fileID: 0}
@@ -2166,50 +2163,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 90c3642afb868244ba9835c2be9b288c,
         type: 2}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
+    - target: {fileID: 6869049144939835685, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}
-      propertyPath: dialogues.Array.size
-      value: 2
+      propertyPath: m_Radius
+      value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
+    - target: {fileID: 7490967312597840155, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}
-      propertyPath: dialogues.Array.data[0].id
+      propertyPath: m_Height
+      value: 2.2446585
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490967312597840155, guid: 597b0ef468c1423429c068ebb91566bb,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.137362
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490967312597840155, guid: 597b0ef468c1423429c068ebb91566bb,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: dialogues.Array.data[0].text
-      value: HOLA BEBE
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: dialogues.Array.data[1].text
-      value: HOLA BEBE2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: dialogues.Array.data[0].options.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: dialogues.Array.data[0].options.Array.data[0].text
-      value: asdasf
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571861262564288215, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: dialogues.Array.data[0].options.Array.data[0].nextDialogueId
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8187932155767366594, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}
       propertyPath: m_Name
       value: LUMBERJACK
-      objectReference: {fileID: 0}
-    - target: {fileID: 8187932155767366594, guid: 597b0ef468c1423429c068ebb91566bb,
-        type: 3}
-      propertyPath: m_TagString
-      value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 8287299999841769083, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}

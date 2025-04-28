@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -55,8 +56,12 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		// cinemachine
-		private float _cinemachineTargetPitch;
+        [Header("Interactions")]
+        public LayerMask interactableLayerMask;
+        Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
+
+        // cinemachine
+        private float _cinemachineTargetPitch;
 
 		// player
 		private float _speed;
@@ -152,6 +157,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Crouch();
+			CheckRaycast();
 			StopExtras();
 		}
 
@@ -429,19 +435,53 @@ namespace StarterAssets
 				guiMan.PauseGame();
 			}
 		}
-		public void InteractionInput(InputAction.CallbackContext callbackContext)
+
+        public void InteractionInput(InputAction.CallbackContext callbackContext)
         {
             if (callbackContext.performed)
             {
-                guiMan.interInput = true;
+                InteractionCaseExecuter(CheckRaycast());
             }
-			if (callbackContext.canceled)
+            if (callbackContext.canceled)
+            {
+            }
+        }
+        private RaycastHit CheckRaycast()
+		{
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out RaycastHit hit, 6f, interactableLayerMask))
 			{
-				guiMan.interInput = false;
+				guiMan.ShowToolTips(hit);
+				return hit;
 			}
+			else
+			{
+				guiMan.HideToolTips();
+				return default(RaycastHit);
+			}
+		}
+        private void InteractionCaseExecuter(RaycastHit hit)
+        {
+            if (hit.transform == null) return;
+
+            if (hit.transform.gameObject.CompareTag("Door"))
+            {
+                Vector3 currentRot = hit.transform.rotation.eulerAngles;
+                if (currentRot.y == 0)
+                    hit.transform.Rotate(new Vector3(0, 90, 0));
+                else if (currentRot.y == 90)
+                    hit.transform.Rotate(new Vector3(0, -90, 0));
+                else if (currentRot.y == 180)
+                    hit.transform.Rotate(new Vector3(0, -90, 0));
+                else if (currentRot.y == 270)
+                    hit.transform.Rotate(new Vector3(0, -90, 0));
+            }
+            if (hit.transform.gameObject.CompareTag("NPC") && hit.transform.GetComponent<NPC>().availableForDialogue == true)
+            {
+                StartCoroutine(hit.transform.GetComponent<NPC>().StartDialogue());
+            }
         }
 
-		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
 			if (lfAngle > 360f) lfAngle -= 360f;

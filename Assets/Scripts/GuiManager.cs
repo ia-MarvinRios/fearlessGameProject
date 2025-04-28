@@ -1,5 +1,6 @@
 using StarterAssets;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class GuiManager : MonoBehaviour
@@ -10,22 +11,19 @@ public class GuiManager : MonoBehaviour
     public GameObject inGameCanvas;
     public GameObject pauseMenuCanvas;
     public GameObject lowerPanel;
+    public TMP_Text textArea;
     public Transform buttonsLayout;
     public GameObject optionButton;
 
     [Header("Player Inputs")]
     public GameObject playerInputs;
 
-    [Header("Interactions Mask")]
-    public LayerMask interactableLayerMask;
-
     private bool isPaused;
     [HideInInspector] internal FirstPersonController inputScript;
-    Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
+    
     TooltipsBehaviour tooltip = null;
 
-    // Inputs
-    [HideInInspector] public bool interInput = false;
+    public TMP_Text TextArea { get { return textArea; } set { textArea = value; } }
 
     void Awake()
     {
@@ -49,27 +47,17 @@ public class GuiManager : MonoBehaviour
         lowerPanel.SetActive(false);
     }
 
-    void Update()
+    public void ShowToolTips(RaycastHit hit)
     {
-        ShowToolTips();
+        tooltip = hit.transform.gameObject.GetComponentInChildren<TooltipsBehaviour>();
+        tooltip.Instantiate();
     }
-
-    private void ShowToolTips()
+    public void HideToolTips()
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)), out RaycastHit hit, 10f, interactableLayerMask))
+        if (tooltip != null)
         {
-            tooltip = hit.transform.gameObject.GetComponentInChildren<TooltipsBehaviour>();
-            tooltip.Instantiate();
-
-            InteractionCaseExecuter(hit);
-        }
-        else
-        {
-            if (tooltip != null)
-            {
-                tooltip.Destroy();
-                tooltip = null;
-            }
+            tooltip.Destroy();
+            tooltip = null;
         }
     }
 
@@ -100,33 +88,5 @@ public class GuiManager : MonoBehaviour
         {
             ResumeGame();
         }
-    }
-
-    private void InteractionCaseExecuter(RaycastHit hit)
-    {
-        if (hit.transform.gameObject.CompareTag("Door") && interInput)
-        {
-            Vector3 currentRot = hit.transform.rotation.eulerAngles;
-            if (currentRot.y == 0)
-                hit.transform.Rotate(new Vector3(0, 90, 0));
-            else if (currentRot.y == 90)
-                hit.transform.Rotate(new Vector3(0, -90, 0));
-            else if (currentRot.y == 180)
-                hit.transform.Rotate(new Vector3(0, -90, 0));
-            else if (currentRot.y == 270)
-                hit.transform.Rotate(new Vector3(0, -90, 0));
-            interInput = false;
-        }
-        if (hit.transform.gameObject.CompareTag("NPC") && interInput && hit.transform.GetComponent<NPC>().didDialogueStart == false)
-        {
-            interInput = lowerPanel.activeInHierarchy;
-            StartCoroutine(StartNPCDialogue(hit));
-        }
-    }
-
-    public IEnumerator StartNPCDialogue(RaycastHit hit)
-    {
-        hit.transform.GetComponent<NPC>().StartDialogue();
-        yield return new WaitForSeconds(1f);
     }
 }

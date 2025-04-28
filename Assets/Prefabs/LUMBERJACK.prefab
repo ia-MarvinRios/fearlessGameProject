@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 8287299999841769083}
   - component: {fileID: 4571861262564288215}
   - component: {fileID: 7490967312597840155}
+  - component: {fileID: 6869049144939835685}
   m_Layer: 7
   m_Name: LUMBERJACK
   m_TagString: NPC
@@ -94,8 +95,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiMan: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 90c3642afb868244ba9835c2be9b288c, type: 2}
+  currentPhase: 1
+  dialogueCooldown: 2
+  didDialogueStart: 0
 --- !u!136 &7490967312597840155
 CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8187932155767366594}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.2446585
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.137362, z: 0}
+--- !u!135 &6869049144939835685
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,11 +140,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.7596912
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8798456, z: 0}
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 1.24, z: 0}
 --- !u!1001 &8066410911856355551
 PrefabInstance:
   m_ObjectHideFlags: 0

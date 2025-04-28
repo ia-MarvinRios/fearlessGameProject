@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,107 +7,126 @@ public class NPC : MonoBehaviour
 {
     [Header("GUI Manager Reference")]
     [SerializeField] private GuiManager guiMan;
-    [SerializeField] TMP_Text textArea;
 
     [Header("Dialogues")]
     [SerializeField] private DialogueData dialogueData;
-    [SerializeField] private int currentPhase;  
-    private int currentId = 0;
-    public bool didDialogueStart = false;
+    [SerializeField] private int currentPhase = 1;
+    [SerializeField] private int dialogueCooldown = 2;
+    private int currentId = 1;
+    public bool availableForDialogue = false;
+    bool waitingForOption = false;
+    bool doneWithDialogues = true;
 
-    private Coroutine typingCoroutine;
     private bool isTyping = false;
     private float typingSpeed = 0.05f;
 
-    public void StartDialogue()
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (!didDialogueStart)
+        if (other.CompareTag("Player"))
         {
-            DestroyAllChildren(guiMan.buttonsLayout);
-            didDialogueStart = true;
-            guiMan.lowerPanel.SetActive(true);
-            textArea.gameObject.SetActive(true);
-            guiMan.buttonsLayout.gameObject.SetActive(false);
+            // Player is within the detection range
+            Debug.Log("Player entered the trigger zone!");
 
-            List<Dialogue> currentPhaseDialogues = new List<Dialogue>();
-
-            foreach (Dialogue dialogue in dialogueData.Dialogues)
-            {
-                if (dialogue.phase == currentPhase)
-                {
-                    currentPhaseDialogues.Add(dialogue);
-                }
-            }
-
-            StartCoroutine(DialogueCoroutine(currentPhaseDialogues));
+            availableForDialogue = true;
         }
-        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Player is out of the detection range
+            Debug.Log("Player left the trigger zone!");
+            availableForDialogue = false;
+            CancelDialogue();
+        }
     }
 
 
-    IEnumerator DialogueCoroutine(List<Dialogue> dialogues)
+
+    public IEnumerator StartDialogue()
     {
-        for (int i = 0; i < dialogues.Count; i++)
+        if (availableForDialogue && !isTyping && !waitingForOption)
         {
-            if (currentId != dialogues[i].id)
+            availableForDialogue = false;
+
+            // Set UI
+            guiMan.lowerPanel.SetActive(true);
+            guiMan.textArea.text = "";
+
+            StartCoroutine(ShowDialogue());
+            yield return new WaitUntil(() => doneWithDialogues);
+            StartCoroutine(WaitDialogueCooldown());
+        }
+        else yield break;
+    }
+
+    IEnumerator ShowDialogue()
+    {
+        doneWithDialogues = false;
+        foreach (Dialogue dialogue in dialogueData.Dialogues)
+        {
+            if (dialogue.id == currentId && dialogue.phase == currentPhase)
             {
-                currentId = dialogues[i].id;
-                typingCoroutine = StartCoroutine(TypeText(dialogues[i].text));
+                Debug.Log("Showing dialogue: " + dialogue.text);
 
-                yield return new WaitUntil(() => !isTyping);
+                // Set UI
+                guiMan.TextArea.gameObject.SetActive(true);
+                guiMan.buttonsLayout.gameObject.SetActive(false);
 
-                yield return new WaitUntil(() => guiMan.interInput);
-                yield return null;
+                // Show text
+                yield return StartCoroutine(TypeText(dialogue.text, guiMan.TextArea));
 
-                if (dialogues[i].options.Length > 0)
+                // Wait for user input to continue
+                yield return new WaitForSeconds(1f);
+
+                // Show options if any
+                if (dialogue.options.Length > 0)
                 {
-                    yield return new WaitUntil(() => ShowDialogueOptions(dialogues[i].options));
-                    yield return null;
+                    // Unlock cursor and disable input
                     Cursor.lockState = CursorLockMode.None;
                     guiMan.inputScript.enabled = false;
+
+                    yield return StartCoroutine(ShowOptions(dialogue.options, guiMan.optionButton));
+
+                    // Lock cursor and enable input
+                    Cursor.lockState = CursorLockMode.Locked;
+                    guiMan.inputScript.enabled = true;
                 }
             }
         }
-
-        EndDialogue();
+        doneWithDialogues = true;
     }
 
-    private bool ShowDialogueOptions(Dialogue.Option[] options)
+    IEnumerator ShowOptions(Dialogue.Option[] options, GameObject btnPrefab)
     {
-        textArea.gameObject.SetActive(false);
-        textArea.text = "";
-        guiMan.buttonsLayout.gameObject.SetActive(true);
+        waitingForOption = true;
 
+        // Set UI
+        DestroyAllChildren(guiMan.buttonsLayout);
+        guiMan.buttonsLayout.gameObject.SetActive(true);
+        guiMan.TextArea.gameObject.SetActive(false);
+
+        // Create buttons
         foreach (Dialogue.Option option in options)
         {
-            GameObject newOption = Instantiate(guiMan.optionButton, guiMan.buttonsLayout);
-            Button btn = newOption.GetComponent<Button>();
-            TMP_Text btnText = newOption.GetComponentInChildren<TMP_Text>();
-            btnText.text = option.text;
-
-            btn.onClick.AddListener(() =>
-            {
-                currentId = option.nextDialogueId;
-                textArea.gameObject.SetActive(true);
-                guiMan.buttonsLayout.gameObject.SetActive(false);
-            });
+            GameObject btn = Instantiate(btnPrefab, guiMan.buttonsLayout);
+            btn.GetComponentInChildren<TMP_Text>().text = option.text;
+            btn.GetComponent<Button>().onClick.AddListener(() => OnOptionSelected(option));
         }
 
-        return true;
+        yield return new WaitUntil(() => !waitingForOption);
     }
-
-    private void EndDialogue()
+    private void OnOptionSelected(Dialogue.Option option)
     {
-        didDialogueStart = false;
-        guiMan.lowerPanel.SetActive(false);
-        textArea.gameObject.SetActive(false);
-        guiMan.buttonsLayout.gameObject.SetActive(false);
-        guiMan.inputScript.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        StopAllCoroutines();
+        currentId = option.nextDialogueId;
+        waitingForOption = false;
+        DestroyAllChildren(guiMan.buttonsLayout);
+        //StartCoroutine(ShowDialogue());
     }
 
-    IEnumerator TypeText(string text)
+    IEnumerator TypeText(string text, TMP_Text textArea)
     {
         isTyping = true;
         textArea.text = "";
@@ -118,14 +135,13 @@ public class NPC : MonoBehaviour
         {
             textArea.text += letter;
 
-            // Aquí hacemos una pausa normal... PERO
             float timer = 0;
             while (timer < typingSpeed)
             {
                 /*
                 if (guiMan.interInput)
                 {
-                    // Si el usuario presiona E, terminar tipeo instantáneo
+                    guiMan.interInput = false;
                     textArea.text = text;
                     isTyping = false;
                     yield break;
@@ -136,23 +152,41 @@ public class NPC : MonoBehaviour
                 yield return null;
             }
         }
-
-        // Terminó de escribir naturalmente
         isTyping = false;
     }
 
     public void DestroyAllChildren(Transform parent)
     {
-        // Verifica si el GameObject tiene hijos
         if (parent.childCount > 0)
         {
-            // Itera sobre cada hijo
             foreach (Transform child in parent)
             {
-                // Destruye el hijo
                 Destroy(child.gameObject);
                 Debug.Log("Destruyendo hijo: " + child.name);
             }
         }
+    }
+
+    IEnumerator WaitDialogueCooldown()
+    {
+        guiMan.lowerPanel.SetActive(false);
+        yield return new WaitForSeconds(dialogueCooldown);
+        availableForDialogue = true;
+
+        StopAllCoroutines();
+    }
+
+    private void CancelDialogue()
+    {
+        StopAllCoroutines();
+        guiMan.textArea.text = "";
+        guiMan.lowerPanel.SetActive(false);
+        DestroyAllChildren(guiMan.buttonsLayout);
+
+        // Reset variables
+        availableForDialogue = true;
+        doneWithDialogues = true;
+        waitingForOption = false;
+        isTyping = false;
     }
 }
