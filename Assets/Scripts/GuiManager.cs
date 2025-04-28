@@ -1,17 +1,26 @@
 using StarterAssets;
+using System.Collections;
 using UnityEngine;
 
 public class GuiManager : MonoBehaviour
 {
     private static GuiManager instance;
 
-    public Canvas mainMenuCanvas;
-    public Canvas pauseMenuCanvas;
+    [Header("UI Elements")]
+    public GameObject inGameCanvas;
+    public GameObject pauseMenuCanvas;
+    public GameObject lowerPanel;
+    public Transform buttonsLayout;
+    public GameObject optionButton;
+
+    [Header("Player Inputs")]
     public GameObject playerInputs;
+
+    [Header("Interactions Mask")]
     public LayerMask interactableLayerMask;
 
     private bool isPaused;
-    private FirstPersonController inputScript;
+    [HideInInspector] internal FirstPersonController inputScript;
     Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
     TooltipsBehaviour tooltip = null;
 
@@ -36,7 +45,8 @@ public class GuiManager : MonoBehaviour
         isPaused = false;
         inputScript = playerInputs.GetComponent<FirstPersonController>();
 
-        pauseMenuCanvas.enabled = false;
+        pauseMenuCanvas.SetActive(false);
+        lowerPanel.SetActive(false);
     }
 
     void Update()
@@ -51,19 +61,7 @@ public class GuiManager : MonoBehaviour
             tooltip = hit.transform.gameObject.GetComponentInChildren<TooltipsBehaviour>();
             tooltip.Instantiate();
 
-            if (hit.transform.gameObject.CompareTag("Door") && interInput)
-            {
-                Vector3 currentRot = hit.transform.rotation.eulerAngles;
-                if (currentRot.y == 0)
-                    hit.transform.Rotate(new Vector3(0, 90, 0));
-                else if (currentRot.y == 90)
-                    hit.transform.Rotate(new Vector3(0, -90, 0));
-                else if (currentRot.y == 180)
-                    hit.transform.Rotate(new Vector3(0, -90, 0));
-                else if (currentRot.y == 270)
-                    hit.transform.Rotate(new Vector3(0,-90,0));
-                interInput = false;
-            }
+            InteractionCaseExecuter(hit);
         }
         else
         {
@@ -79,7 +77,8 @@ public class GuiManager : MonoBehaviour
     {
         isPaused = false;
         Debug.Log("Juego REANUDADO.");
-        pauseMenuCanvas.enabled = false;
+        inGameCanvas.SetActive(true);
+        pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         inputScript._canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -91,7 +90,8 @@ public class GuiManager : MonoBehaviour
         {
             isPaused = true;
             Debug.Log("Juego PAUSADO.");
-            pauseMenuCanvas.enabled = true;
+            inGameCanvas.SetActive(false);
+            pauseMenuCanvas.SetActive(true);
             Time.timeScale = 0f;
             inputScript._canLook = false;
             Cursor.lockState = CursorLockMode.None;
@@ -100,5 +100,33 @@ public class GuiManager : MonoBehaviour
         {
             ResumeGame();
         }
+    }
+
+    private void InteractionCaseExecuter(RaycastHit hit)
+    {
+        if (hit.transform.gameObject.CompareTag("Door") && interInput)
+        {
+            Vector3 currentRot = hit.transform.rotation.eulerAngles;
+            if (currentRot.y == 0)
+                hit.transform.Rotate(new Vector3(0, 90, 0));
+            else if (currentRot.y == 90)
+                hit.transform.Rotate(new Vector3(0, -90, 0));
+            else if (currentRot.y == 180)
+                hit.transform.Rotate(new Vector3(0, -90, 0));
+            else if (currentRot.y == 270)
+                hit.transform.Rotate(new Vector3(0, -90, 0));
+            interInput = false;
+        }
+        if (hit.transform.gameObject.CompareTag("NPC") && interInput && hit.transform.GetComponent<NPC>().didDialogueStart == false)
+        {
+            interInput = lowerPanel.activeInHierarchy;
+            StartCoroutine(StartNPCDialogue(hit));
+        }
+    }
+
+    public IEnumerator StartNPCDialogue(RaycastHit hit)
+    {
+        hit.transform.GetComponent<NPC>().StartDialogue();
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Door
+  - EXP
+  - NPC
+  - ENEMIGO
+  - LOOT
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - whatIsGround
   - interactObjects
   - 3DUI
-  - 
-  - 
+  - PLAYER
+  - ENEMIGO
   - 
   - 
   - 
