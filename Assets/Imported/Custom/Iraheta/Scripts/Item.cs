@@ -9,8 +9,27 @@ public class Item : MonoBehaviour
     //[TagSelector]
     //public string _tagMision;  // Seleccionable desde un Dropdown en el Inspector
     public int _cantidad=1;
+    private Gui3D gui3D;
 
+    private void Start()
+    {
+        gui3D = FindObjectOfType<Gui3D>();
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gui3D.IsOnRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gui3D.IsOnRange = false;
+        }
+    }
 }
 /*
 // =============================

@@ -45,6 +45,8 @@ public class NpcController : MonoBehaviour
     int _restante;
     string _nombreItem; 
 
+    //Modified
+    Collider _other = null;
 
 
 
@@ -171,20 +173,29 @@ public class NpcController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
         if (other.CompareTag("Player"))
         {
-            Interactuar.Invoke();
+            _other = other;
             FaceTarget(other.transform);
             gui3D.IsOnRange = true;
         }
 
+    }
+    public void Einteract()
+    {
+        if (gui3D.IsTooltipActive && _other != null)
+        {
+            Interactuar.Invoke();
+        }
+        else return;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            _other = null;
             DejarInteractuar.Invoke();
             StopAllCoroutines();
             gui3D.IsOnRange = false;
@@ -235,7 +246,7 @@ public class NpcController : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.rotation = lookRotation;
     }
 
 

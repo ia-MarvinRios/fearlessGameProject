@@ -31,6 +31,7 @@ public class ScreenRaycast : MonoBehaviour
         else
         {
             hit = default;
+            gui3D.IsPointing = false;
         }
     }
 
@@ -38,13 +39,9 @@ public class ScreenRaycast : MonoBehaviour
     {
         if (hit.collider != null)
         {
-            if (hit.transform.CompareTag("NPC") || hit.transform.CompareTag("Door"))
+            if (hit.transform.CompareTag("NPC") || hit.transform.CompareTag("Door") || hit.transform.CompareTag("Hacha"))
             {
                 gui3D.IsPointing = true;
-            }
-            else
-            {
-                gui3D.IsPointing = false;
             }
         }
     }

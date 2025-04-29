@@ -51,9 +51,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "AcceptMission",
                     "type": "Button",
                     "id": "72eb1df0-0fb9-469e-8d67-8da05fc5044f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "b77cd827-8278-4fb3-bb23-e9c5048e020b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -255,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "Interact",
+                    "action": "AcceptMission",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -263,6 +272,28 @@
                     "name": "",
                     "id": "e9d687e5-fafa-4bb3-803b-b8ac4ff43d19",
                     "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "AcceptMission",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "266747f1-6ddd-464f-9fc0-76c1433f44e1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4043cfd-2a5c-4267-8255-a19bdb647ebc",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",

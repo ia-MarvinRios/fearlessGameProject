@@ -8,9 +8,11 @@ public class Gui3D : MonoBehaviour
 
     bool isPointing = false;
     bool isOnRange = false;
+    bool isTooltipActive = false;
 
     public bool IsPointing { get { return isPointing; } set { isPointing = value; } }
     public bool IsOnRange { get { return isOnRange; } set { isOnRange = value; } }
+    public bool IsTooltipActive { get { return isTooltipActive; } set { isTooltipActive = value; } }
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class Gui3D : MonoBehaviour
         tooltip = screenRaycast.hit.collider != null ? screenRaycast.hit.transform.gameObject.GetComponentInChildren<TooltipsBehaviour>() : null;
         if (tooltip != null)
         {
+            isTooltipActive = true;
             tooltip.Instantiate();
         }
     }
@@ -42,6 +45,7 @@ public class Gui3D : MonoBehaviour
     {
         if (tooltip != null)
         {
+            isTooltipActive = false;
             tooltip.Destroy();
             tooltip = null;
         }
