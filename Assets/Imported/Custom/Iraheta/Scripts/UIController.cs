@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
 
     public void AgregarMisionesAlGrid()
     {
+        
         // Limpiar Grid antes de agregar nuevas misiones
         foreach (Transform child in gridContainer)
         {
@@ -60,6 +61,7 @@ public class UIController : MonoBehaviour
             }
 
         }
+        
     }
 
 

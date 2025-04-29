@@ -11,6 +11,7 @@ public class NpcController : MonoBehaviour
     public string _nombreNPC; 
     public float velocidadEscritura = 0.05f;
     string mensajeFinal;
+    public Gui3D gui3D;
 
     [Space]
     [Tooltip("Utilizar el nombre de la variable entre llaves {}: {nombre_npc}, {nombre_mision}, {nombre_item}, {cantidad_meta}, {cantidad_recolectada}, {cantidad_restante}")]
@@ -175,6 +176,7 @@ public class NpcController : MonoBehaviour
         {
             Interactuar.Invoke();
             FaceTarget(other.transform);
+            gui3D.IsOnRange = true;
         }
 
     }
@@ -185,6 +187,7 @@ public class NpcController : MonoBehaviour
         {
             DejarInteractuar.Invoke();
             StopAllCoroutines();
+            gui3D.IsOnRange = false;
         }
     }
 

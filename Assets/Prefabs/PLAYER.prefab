@@ -61,6 +61,9 @@ GameObject:
   - component: {fileID: 1996056767358574390}
   - component: {fileID: 8217905049389289279}
   - component: {fileID: 2474485444139261365}
+  - component: {fileID: 2313672530608503890}
+  - component: {fileID: 3222929755659475990}
+  - component: {fileID: 647566914249109196}
   m_Layer: 8
   m_Name: PLAYER
   m_TagString: Player
@@ -309,6 +312,99 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2313672530608503890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870469034997315882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd95b3675d27fd4b9d8e524f0abfde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 1
+  experiencia: 0
+  experienciaNecesaria: 1
+  _puntosDisponibles: 0
+  _velocidad: 1
+  _fuerza: 5
+  _magia: 5
+  _vida: 30
+  _vidaActual: 0
+  multiplicadorExp: 1.5
+  _msgPuntos: 
+  _msgVida: 
+  _msgFuerza: 
+  _msgMagia: 
+  _msgVelocidad: 
+  _obtenerExperiencia:
+    m_PersistentCalls:
+      m_Calls: []
+  _subirNivel:
+    m_PersistentCalls:
+      m_Calls: []
+  _mejorarAtributo:
+    m_PersistentCalls:
+      m_Calls: []
+  _abrirInventario:
+    m_PersistentCalls:
+      m_Calls: []
+  _cerrarInventario:
+    m_PersistentCalls:
+      m_Calls: []
+  _spawn: {fileID: 0}
+--- !u!114 &3222929755659475990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870469034997315882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbb92459d88ca444b558aa05f46fc60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionEvents:
+  - actionName: Move
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+  - actionName: Look
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+  - actionName: Jump
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+  - actionName: Sprint
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+  - actionName: Crouch
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+  - actionName: Interact
+    onPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &647566914249109196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870469034997315882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daaddb6e7d6a7946975977e6cb04497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loot: {fileID: 0}
 --- !u!1 &8683773418201476301
 GameObject:
   m_ObjectHideFlags: 0
