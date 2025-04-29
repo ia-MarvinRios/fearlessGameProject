@@ -478,7 +478,12 @@ namespace StarterAssets
             if (hit.transform.gameObject.CompareTag("NPC") && hit.transform.GetComponent<NPC>().availableForDialogue == true)
             {
                 StartCoroutine(hit.transform.GetComponent<NPC>().StartDialogue());
+				hit.transform.rotation = Quaternion.LookRotation(transform.position - hit.transform.position);
             }
+			if (hit.transform.gameObject.CompareTag("Hacha"))
+			{
+
+			}
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

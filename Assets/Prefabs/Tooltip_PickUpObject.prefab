@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8404663217978271260}
   - component: {fileID: 2199809160783859501}
   m_Layer: 8
-  m_Name: Img_DoorOpen
+  m_Name: Img_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fadbded4e903e8e4ea13cc46bfbcd420, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ab199799fdddf9408222085337cfb47, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4413801306479341032}
   - component: {fileID: 2106096300939821061}
   m_Layer: 8
-  m_Name: Tooltip_Chat
+  m_Name: Tooltip_PickUpObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4413801306479341032
 MonoBehaviour:
   m_ObjectHideFlags: 0

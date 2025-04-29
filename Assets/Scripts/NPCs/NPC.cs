@@ -20,6 +20,9 @@ public class NPC : MonoBehaviour
     private bool isTyping = false;
     private float typingSpeed = 0.05f;
 
+    // Getters and Setters
+    public int CurrentPhase { get { return currentPhase; } set { currentPhase = value; } }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -94,6 +97,17 @@ public class NPC : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     guiMan.inputScript.enabled = true;
                 }
+                
+                if (dialogue.nextDialogueId != 0)
+                {
+                    currentId = dialogue.nextDialogueId;
+                }
+                if (dialogue.nextPhaseId != 0)
+                {
+                    currentPhase = dialogue.nextPhaseId;
+                }
+
+                CheckCurrentPhaseForMissions();
             }
         }
         doneWithDialogues = true;
@@ -188,5 +202,15 @@ public class NPC : MonoBehaviour
         doneWithDialogues = true;
         waitingForOption = false;
         isTyping = false;
+    }
+
+    private void CheckCurrentPhaseForMissions()
+    {
+        NpcController irahetaNPC = gameObject.GetComponent<NpcController>();
+
+        if (currentPhase == 2)
+        {
+            irahetaNPC.AceptarMision();
+        }
     }
 }
