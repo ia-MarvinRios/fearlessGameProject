@@ -2023,11 +2023,18 @@ MonoBehaviour:
   _nombreNPC: "Le\xF1ador"
   velocidadEscritura: 0.05
   gui3D: {fileID: 1588092309}
-  _mensajeInicio: "Hola, se\xF1ora. Necesito que me ayudes consiguiendo {nombre_item}."
-  _mensajeAceptada: Gracias, sister.
-  _mensajeIncopleta: "\xBFY mi hacha?"
-  _mensajeCompletada: Gracias.
-  _mensajeCerrada: Muchas gracias por haber encontrado mi hacha.
+  _mensajeInicio: "Buenos d\xEDas, disculpa que te moleste. He perdido mi hacha y
+    me vendr\xEDa bien un poco de ayuda para recuperarla. \xBFMe echas una mano?"
+  _mensajeAceptada: "Gracias por tu disposici\xF3n. No deber\xEDa estar muy lejos
+    de esta \xE1rea."
+  _mensajeIncopleta: "\xBFSobre la mansi\xF3n Guirola que est\xE1 al final del camino?
+    Puedo darte informaci\xF3n, pero primero necesito tu ayuda."
+  _mensajeCompletada: "Gracias por recuperar mi hacha. Con respecto a la mansi\xF3n,
+    es muy peligroso. El lugar es famoso por encuentros sobrenaturales y desapariciones
+    misteriosas."
+  _mensajeCerrada: "\xBFVienes por motivos de trabajo? Con que eres exorcista...
+    Quiz\xE1 pueda ayudarte si es el caso. Pero me gustar\xEDa que me apoyaras t\xFA
+    tambi\xE9n; cosas insignificantes, nada muy exigente."
   _misionId: 0
   MisionInicio:
     m_PersistentCalls:
@@ -3124,6 +3131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029655778617029127, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
