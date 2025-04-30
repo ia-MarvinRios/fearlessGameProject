@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6000491352103141950}
   - component: {fileID: 8519973599889016718}
   - component: {fileID: 5623451690822254793}
-  - component: {fileID: 2707246936245537461}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,7 +54,8 @@ MonoBehaviour:
   _txtTitulo: {fileID: 0}
   _txtDialogo: {fileID: 0}
   gridContainer: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 7140834550851706780, guid: 44028f69568e57543a06074c0ec78de2,
+    type: 3}
   misiones: []
   _txtPuntos: {fileID: 0}
   _txtVida: {fileID: 0}
@@ -84,6 +84,14 @@ MonoBehaviour:
     nombre: Obtener Hacha
     selectedTag: Hacha
     cantidadMeta: 1
+    cantidadRecolectada: 0
+    asignada: 0
+    cerrada: 0
+    npcController: {fileID: 0}
+  - _icono: {fileID: 0}
+    nombre: "Obtener Le\xF1a"
+    selectedTag: Wood
+    cantidadMeta: 10
     cantidadRecolectada: 0
     asignada: 0
     cerrada: 0
@@ -216,7 +224,7 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  maxDistance: 5
+  maxDistance: 3
 --- !u!114 &5623451690822254793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,18 +235,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f42ba98087b85404d86ca0c848019361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2707246936245537461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6363314643093931862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1094dc3b86856e42b751a468c3a0795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8757527876584139894
@@ -441,6 +437,26 @@ PrefabInstance:
         type: 3}
       propertyPath: orthographic size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
