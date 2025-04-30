@@ -11,7 +11,10 @@ public class NpcController : MonoBehaviour
     public string _nombreNPC; 
     public float velocidadEscritura = 0.05f;
     string mensajeFinal;
+
+    // Modified
     public Gui3D gui3D;
+    public bool isTyping = false;
 
     [Space]
     [Tooltip("Utilizar el nombre de la variable entre llaves {}: {nombre_npc}, {nombre_mision}, {nombre_item}, {cantidad_meta}, {cantidad_recolectada}, {cantidad_restante}")]
@@ -196,6 +199,7 @@ public class NpcController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _other = null;
+            isTyping = false;
             DejarInteractuar.Invoke();
             StopAllCoroutines();
             gui3D.IsOnRange = false;
@@ -218,6 +222,7 @@ public class NpcController : MonoBehaviour
             .Replace("{cantidad_recolectada}", gameManager.misiones[_misionId].cantidadRecolectada.ToString())
             .Replace("{cantidad_restante}", _restante.ToString());
             MisionAceptada?.Invoke();
+            isTyping = false;
             Debug.Log(mensajeFinal + " " + gameManager.misiones[_misionId].nombre);
             if (gameManager._txtDialogo) StartCoroutine(EscribirTexto(gameManager._txtDialogo, mensajeFinal));
             if (gameManager.uIController.gridContainer) gameManager.uIController.AgregarMisionesAlGrid();
@@ -232,11 +237,18 @@ public class NpcController : MonoBehaviour
 
     private IEnumerator EscribirTexto(TMP_Text _txtMsg, string _msg)
     {
-        _txtMsg.text = ""; // Limpia el texto antes de empezar
-        foreach (char letra in _msg)
+        if (!isTyping)
         {
-            _txtMsg.text += letra; // Agrega una letra cada iteración
-            yield return new WaitForSeconds(velocidadEscritura);
+            isTyping = true;
+
+            _txtMsg.text = ""; // Limpia el texto antes de empezar
+            foreach (char letra in _msg)
+            {
+                _txtMsg.text += letra; // Agrega una letra cada iteración
+                yield return new WaitForSeconds(velocidadEscritura);
+            }
+
+            isTyping = false;
         }
     }
 
