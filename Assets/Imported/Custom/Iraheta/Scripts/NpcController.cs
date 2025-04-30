@@ -14,7 +14,7 @@ public class NpcController : MonoBehaviour
 
     // Modified
     public Gui3D gui3D;
-    public bool isTyping = false;
+    [HideInInspector] public bool isTyping = false;
 
     [Space]
     [Tooltip("Utilizar el nombre de la variable entre llaves {}: {nombre_npc}, {nombre_mision}, {nombre_item}, {cantidad_meta}, {cantidad_recolectada}, {cantidad_restante}")]
