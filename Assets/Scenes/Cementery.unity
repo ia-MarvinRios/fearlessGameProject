@@ -2072,6 +2072,11 @@ PrefabInstance:
       propertyPath: triggerNextMission.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 913704117}
+    - target: {fileID: 8873969162319954995, guid: f5d47beb7ae2779429cc5dc11f09053f,
+        type: 3}
+      propertyPath: triggerNextMission.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestroyGameObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

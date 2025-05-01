@@ -24,6 +24,13 @@ public class ScreenRaycast : MonoBehaviour
 
     private void Update()
     {
+        // This is only if the reference to the camera gets lost because of the scene switching
+        if (mainCamera == null)
+        {
+            // Gets the main camera in the scene
+            mainCamera = Camera.main;
+        }
+
         if (Physics.Raycast(mainCamera.ScreenPointToRay(screenPoint), out hit, maxDistance, interactableLayerMask))
         {
             CheckHit();

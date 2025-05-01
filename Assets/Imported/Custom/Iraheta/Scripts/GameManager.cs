@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         _txtTitulo = uIController._txtTitulo;
         uIController.misiones = misiones;
         
+        DontDestroyOnLoad(this); // Mantener el GameManager entre escenas
+
         //Debug.Log("Para conocer las teclas disponibles presione la tecla: i ");
     }
 

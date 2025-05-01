@@ -3,6 +3,19 @@ using UnityEngine;
 
 public class GameUIBrain : MonoBehaviour
 {
+    // Singleton
+    public static GameUIBrain Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     FirstPersonController _controller;
 
     private bool isPaused = false;

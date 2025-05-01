@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInfo
-  spawnPointIndex: 1
+  spawnPointIndex: 2
   spawnPoints:
   - {x: 0.188, y: 10.39, z: -170.539}
   - {x: 0, y: 3.5, z: -39.75}

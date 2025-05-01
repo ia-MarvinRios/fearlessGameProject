@@ -16,4 +16,10 @@ public class ToggleGameObject : MonoBehaviour
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
     }
     
+
+    // Modified
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
 }
