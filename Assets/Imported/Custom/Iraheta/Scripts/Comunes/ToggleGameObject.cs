@@ -22,4 +22,11 @@ public class ToggleGameObject : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    public void DestroyChildren()
+    {
+       foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }
