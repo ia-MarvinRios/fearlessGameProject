@@ -566,7 +566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5f0ee713726f94ab204721b5822560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: a4d784bb1f5d2894a8ff21dfbf9f5b9f, type: 2}
   nextScene: house
+  spawnPointIndex: 1
 --- !u!4 &563771365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4367778249324570800, guid: 0d3059b07c39933458efcbbdaac296e9,
@@ -630,6 +632,13 @@ PrefabInstance:
       propertyPath: gui3D
       value: 
       objectReference: {fileID: 801017008571654712}
+    - target: {fileID: 6862076862307172302, guid: 597b0ef468c1423429c068ebb91566bb,
+        type: 3}
+      propertyPath: _mensajeCerrada
+      value: "\xBFVienes por motivos de trabajo? Con que eres exorcista... Quiz\xE1
+        pueda ayudarte si es el caso. Pero me gustar\xEDa que me apoyaras t\xFA tambi\xE9n;
+        cosas insignificantes, nada muy exigente. Te veo cerca de la mansi\xF3n."
+      objectReference: {fileID: 0}
     - target: {fileID: 6862076862307172302, guid: 597b0ef468c1423429c068ebb91566bb,
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.size
@@ -1233,7 +1242,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 212063269}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1510957097}
   m_LocalEulerAnglesHint: {x: -117.201996, y: 49.212997, z: -45.871002}
 --- !u!135 &1244554613
 SphereCollider:
@@ -1334,6 +1343,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510957096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510957097}
+  m_Layer: 0
+  m_Name: MissionObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1510957097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510957096}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1244554612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548168650 stripped
@@ -2049,21 +2090,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2218307024210877807, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1002249521}
-    - target: {fileID: 2218307024210877807, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2218307024210877807, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameUIBrain, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 6852998888138185688, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2113,51 +2139,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1002249521}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 968183123}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ActivarObjeto
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameUIBrain, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ToggleGameObject, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745004004463510277, guid: 042de1934e0e549439a866b5d616e69b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2432,6 +2413,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7277674877471567521}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaceBySpawnPointID
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerWorldPlacer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: a4d784bb1f5d2894a8ff21dfbf9f5b9f,
+        type: 2}
+    - target: {fileID: 5204642699710361610, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: onSceneLoad.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: PlayerInfo, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7029655778617029127, guid: 92fe505fc44238e409ca8d0e073a7e89,
         type: 3}
       propertyPath: m_Radius
@@ -2442,6 +2464,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92fe505fc44238e409ca8d0e073a7e89, type: 3}
+--- !u!114 &7277674877471567521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2908155361523188634, guid: 92fe505fc44238e409ca8d0e073a7e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 7277674877471567520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859c48f4fb3172c44985a5d30d621937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2457,6 +2491,6 @@ SceneRoots:
   - {fileID: 1766870081}
   - {fileID: 1706222443636504202}
   - {fileID: 874767366}
-  - {fileID: 1244554612}
   - {fileID: 913704111}
   - {fileID: 447217067}
+  - {fileID: 1510957097}
