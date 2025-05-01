@@ -31,7 +31,7 @@ public class SceneLoader : MonoBehaviour
             playerInfo.SpawnPointIndex = spawnPointIndex;
             playerInfo.LastPosition = _other.transform.position;
             playerInfo.LastRotation = _other.transform.rotation;
-            SceneManager.LoadScene(nextScene);
+            SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
         }
         else return;
     }
