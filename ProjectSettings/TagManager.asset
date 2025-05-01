@@ -12,6 +12,7 @@ TagManager:
   - LOOT
   - Hacha
   - Wood
+  - Lampara
   layers:
   - Default
   - TransparentFX
