@@ -4,6 +4,8 @@ using UnityEngine;
 public class ProximityChecker : MonoBehaviour
 {
     Gui3D gui3D;
+    private Collider _other;
+    public Collider _Other { get { return _other; } }
 
     private void Start()
     {
@@ -15,6 +17,7 @@ public class ProximityChecker : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
+                _other = other;
                 gui3D.IsOnRange = true;
             }
         }
@@ -28,6 +31,7 @@ public class ProximityChecker : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
+                _other = null;
                 gui3D.IsOnRange = false;
             }
         }
