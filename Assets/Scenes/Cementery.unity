@@ -304,6 +304,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -377,6 +387,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -521,6 +571,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -972,6 +1062,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log
       objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1045,6 +1175,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1163,6 +1333,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1332,6 +1542,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2192,22 +2442,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1617292841}
     m_Modifications:
     - target: {fileID: 3580572334955149953, guid: 78ed93459f67dd347823f7fc856b2ff2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.67
+      value: 30.519289
       objectReference: {fileID: 0}
     - target: {fileID: 3580572334955149953, guid: 78ed93459f67dd347823f7fc856b2ff2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 4.903926
       objectReference: {fileID: 0}
     - target: {fileID: 3580572334955149953, guid: 78ed93459f67dd347823f7fc856b2ff2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 51.83
+      value: 89.70413
       objectReference: {fileID: 0}
     - target: {fileID: 3580572334955149953, guid: 78ed93459f67dd347823f7fc856b2ff2,
         type: 3}
@@ -2254,6 +2504,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78ed93459f67dd347823f7fc856b2ff2, type: 3}
+--- !u!4 &1221454543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3580572334955149953, guid: 78ed93459f67dd347823f7fc856b2ff2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221454542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244554609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5428714239149764043, guid: e453535e9ade9694aaa94da9b0a2b5d3,
@@ -2342,6 +2598,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2738,6 +3004,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log
       objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2779,6 +3085,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 847461551235442738}
+  - {fileID: 1221454543}
   m_Father: {fileID: 1510957097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1635110251
@@ -3444,6 +3751,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.atime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.ctime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.ctime2
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key0.b
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key0.g
+      value: 0.95686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key2.b
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key2.g
+      value: 0.6627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key2.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key3.b
+      value: 0.09411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key3.g
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.key3.r
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: sunColorGradient.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3459,6 +3841,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f42ba98087b85404d86ca0c848019361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &801017008571654713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8324251758239590835, guid: 27490a36e6ed88b438a0827d33b26442,
+    type: 3}
+  m_PrefabInstance: {fileID: 500181701616999099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6e34d2665a137469f38435076cccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &847461551235442737
@@ -3796,6 +4190,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Log
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateSun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4298,4 +4732,3 @@ SceneRoots:
   - {fileID: 447217067}
   - {fileID: 1510957097}
   - {fileID: 1655735001}
-  - {fileID: 1221454542}
