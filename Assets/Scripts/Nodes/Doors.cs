@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,6 +7,7 @@ using UnityEngine.Events;
 public class Doors : MonoBehaviour
 {
     private Gui3D gui3D;
+    private StarterAssetsInputs inputs;
     private ProximityChecker proximityChecker;
 
     private bool isRotating = false;
@@ -14,6 +16,9 @@ public class Doors : MonoBehaviour
     public float rotationDuration = 1f;
     private bool unlocked = false;
     public bool Unlocked { get { return unlocked; } set { unlocked = value; } }
+    private bool isOpen = false;
+    public Quaternion targetRot = Quaternion.identity;
+    private Quaternion currentRot = Quaternion.identity;
 
     [Header("Events")]
     public UnityEvent onDoorInteraction;
@@ -23,11 +28,17 @@ public class Doors : MonoBehaviour
     {
         gui3D = FindObjectOfType<Gui3D>();
         proximityChecker = GetComponent<ProximityChecker>();
+        inputs = FindObjectOfType<StarterAssetsInputs>();
+    }
+    
+    private void Start()
+    {
+        currentRot = transform.localRotation;
     }
 
-    public void EInteract()
+    public void Update()
     {
-        if (gui3D.IsTooltipActive && proximityChecker._Other != null)
+        if (gui3D.IsTooltipActive && proximityChecker._Other != null && inputs.interact)
         {
             onDoorInteraction?.Invoke();
         }
@@ -35,21 +46,18 @@ public class Doors : MonoBehaviour
 
     public void OpenDoor()
     {
-        Quaternion currentRot = transform.localRotation;
-        Quaternion targetRot = Quaternion.identity;
-
-        if (currentRot.y == 0)
-            targetRot = Quaternion.Euler(0, 90, 0);
-        else if (currentRot.y == 90)
-            targetRot = Quaternion.Euler(0, -90, 0);
-        else if (currentRot.y == 180)
-            targetRot = Quaternion.Euler(0, -90, 0);
-        else if (currentRot.y == 270)
-            targetRot = Quaternion.Euler(0, -90, 0);
-
         if (!isRotating)
         {
-            StartCoroutine(RotateDoor(currentRot, targetRot));
+            if (!isOpen)
+            {
+                StartCoroutine(RotateDoor(currentRot, targetRot));
+                isOpen = true;
+            }
+            else
+            {
+                StartCoroutine(RotateDoor(targetRot, currentRot));
+                isOpen = false;
+            }
         }
         else return;
     }
@@ -58,21 +66,18 @@ public class Doors : MonoBehaviour
     {
         if (unlocked)
         {
-            Quaternion currentRot = transform.localRotation;
-            Quaternion targetRot = Quaternion.identity;
-
-            if (currentRot.y == 0)
-                targetRot = Quaternion.Euler(0, 90, 0);
-            else if (currentRot.y == 90)
-                targetRot = Quaternion.Euler(0, -90, 0);
-            else if (currentRot.y == 180)
-                targetRot = Quaternion.Euler(0, -90, 0);
-            else if (currentRot.y == 270)
-                targetRot = Quaternion.Euler(0, -90, 0);
-
             if (!isRotating)
             {
-                StartCoroutine(RotateDoor(currentRot, targetRot));
+                if (!isOpen)
+                {
+                    StartCoroutine(RotateDoor(currentRot, targetRot));
+                    isOpen = true;
+                }
+                else
+                {
+                    StartCoroutine(RotateDoor(targetRot, currentRot));
+                    isOpen = false;
+                }
             }
             else return;
         }
