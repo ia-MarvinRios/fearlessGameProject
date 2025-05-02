@@ -2361,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &917476991
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,14 +2600,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
         type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
       propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 801017008571654713}
     - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
         type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 801017008571654713}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TransitionAmbience
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
       propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 135409720}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321844441768266133, guid: 09d78982447ff114a9403cc0866f7a3c,
+        type: 3}
+      propertyPath: onDestroyEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3696,6 +3736,11 @@ PrefabInstance:
       propertyPath: misiones.Array.data[2].npcController
       value: 
       objectReference: {fileID: 1635110252}
+    - target: {fileID: 6000491352103141950, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: nightForestAmbience
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e6d26572e9b1414e893b0a844b78574, type: 3}
     - target: {fileID: 6363314643093931862, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: m_Name
