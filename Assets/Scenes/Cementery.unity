@@ -836,6 +836,9 @@ MonoBehaviour:
   portalClosed: 1
   nextScene: house
   spawnPointIndex: 1
+  onPortalClosed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &563771365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4367778249324570800, guid: 0d3059b07c39933458efcbbdaac296e9,
@@ -4510,6 +4513,11 @@ PrefabInstance:
     - target: {fileID: 6852998888138185688, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494957142973272793, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
