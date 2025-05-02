@@ -2007,7 +2007,7 @@ PrefabInstance:
     - target: {fileID: 1069948471939530862, guid: 128a6609072ebf6428f4be3a1801c590,
         type: 3}
       propertyPath: MisionCompletada.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1069948471939530862, guid: 128a6609072ebf6428f4be3a1801c590,
         type: 3}
@@ -2347,7 +2347,7 @@ PrefabInstance:
     - target: {fileID: 2932620672429444305, guid: 128a6609072ebf6428f4be3a1801c590,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6941852049079745398, guid: 128a6609072ebf6428f4be3a1801c590,
         type: 3}
