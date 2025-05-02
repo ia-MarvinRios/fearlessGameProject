@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Utilities : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Utilities : MonoBehaviour
     private bool isTransitioning = false;
     AmbienceSFX ambienceSFX;
 
-
+    [Header("Eventos Al Anochecer")]
+    public UnityEvent onNightEvent;
 
     private void Awake()
     {
@@ -78,6 +80,9 @@ public class Utilities : MonoBehaviour
                 yield return null;
             }
             source.volume = fullOriginalVolume;
+
+            // Llamar al evento de anochecer
+            onNightEvent?.Invoke();
         }
 
         isTransitioning = false;
