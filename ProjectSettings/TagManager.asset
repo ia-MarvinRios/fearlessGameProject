@@ -14,7 +14,8 @@ TagManager:
   - Wood
   - Lampara
   - Llave
-  - Llave del cobertizo
+  - Llave H
+  - Obj Duende
   layers:
   - Default
   - TransparentFX
