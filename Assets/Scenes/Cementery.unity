@@ -3285,7 +3285,7 @@ PrefabInstance:
     - target: {fileID: 2103482959152327322, guid: e756c7079703b574d8710ed3f75e34e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2274903852919971619, guid: e756c7079703b574d8710ed3f75e34e3,
         type: 3}
@@ -3817,50 +3817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1690fb611da6b7a42870d9242a732548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1870969968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870969962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb09aee740b18342840449b256ff4b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _titulo: 
-  _nombreNPC: 
-  velocidadEscritura: 0.05
-  gui3D: {fileID: 0}
-  isTyping: 0
-  _mensajeInicio: Se necesita una {nombre_item}
-  _mensajeAceptada: Usarar {nombre_item}
-  _mensajeIncopleta: 
-  _mensajeCompletada: Entrar al Cobertizo
-  _mensajeCerrada: Entrar al Cobertizo
-  _misionId: 0
-  MisionInicio:
-    m_PersistentCalls:
-      m_Calls: []
-  MisionAceptada:
-    m_PersistentCalls:
-      m_Calls: []
-  MisionIncopleta:
-    m_PersistentCalls:
-      m_Calls: []
-  MisionCompletada:
-    m_PersistentCalls:
-      m_Calls: []
-  MisionCerrada:
-    m_PersistentCalls:
-      m_Calls: []
-  Interactuar:
-    m_PersistentCalls:
-      m_Calls: []
-  DejarInteractuar:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1926683286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4286,7 +4242,7 @@ PrefabInstance:
         type: 3}
       propertyPath: misiones.Array.data[3].npcController
       value: 
-      objectReference: {fileID: 1870969968}
+      objectReference: {fileID: 0}
     - target: {fileID: 5106403269113111629, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: misiones.Array.data[3].cantidadRecolectada
@@ -4620,7 +4576,7 @@ PrefabInstance:
     - target: {fileID: 4023587492717097482, guid: 0d3059b07c39933458efcbbdaac296e9,
         type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 4367778249324570800, guid: 0d3059b07c39933458efcbbdaac296e9,
         type: 3}
@@ -4663,10 +4619,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870969967}
-    - targetCorrespondingSourceObject: {fileID: 4023587492717097482, guid: 0d3059b07c39933458efcbbdaac296e9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1870969968}
   m_SourcePrefab: {fileID: 100100000, guid: 0d3059b07c39933458efcbbdaac296e9, type: 3}
 --- !u!1001 &1935423421267270440
 PrefabInstance:
