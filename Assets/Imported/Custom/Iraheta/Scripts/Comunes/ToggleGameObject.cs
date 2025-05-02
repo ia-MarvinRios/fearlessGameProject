@@ -25,8 +25,8 @@ public class ToggleGameObject : MonoBehaviour
     public void DestroyChildren()
     {
        foreach (Transform child in transform)
-        {
+       {
             Destroy(child.gameObject);
-        }
+       }
     }
 }

@@ -37,6 +37,12 @@ public class UIController : MonoBehaviour
         // Recorrer la lista de misiones y agregar cada una al Grid
         foreach (var mision in misiones)
         {
+            //MODIFIED: Si la misión está cerrada, no se asigna
+            if (mision.cerrada)
+            {
+                mision.asignada = false;
+            }
+
             if (mision.asignada)
             {
                 GameObject newItem = Instantiate(itemPrefab, gridContainer);
@@ -59,7 +65,6 @@ public class UIController : MonoBehaviour
 
 
             }
-
         }
         
     }
