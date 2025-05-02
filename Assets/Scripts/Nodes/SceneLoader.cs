@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public PlayerInfo playerInfo;
+
+    [Header("Portal Settings")]
+    public bool portalClosed = false;
     public string nextScene = "";
     public int spawnPointIndex = 0;
+
+    [Header("On Portal Closed")]
+    public UnityEvent onPortalClosed;
+
     Collider _other;
     Gui3D gui3D;
 
@@ -26,14 +33,23 @@ public class SceneLoader : MonoBehaviour
     }
     public void Einteract()
     {
-        if (gui3D.IsTooltipActive && _other != null && nextScene != "")
+        if (gui3D.IsTooltipActive && _other != null && nextScene != "" && !portalClosed)
         {
             playerInfo.SpawnPointIndex = spawnPointIndex;
             playerInfo.LastPosition = _other.transform.position;
             playerInfo.LastRotation = _other.transform.rotation;
             SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
         }
+        if (portalClosed)
+        {
+            onPortalClosed?.Invoke();
+        }
         else return;
+    }
+
+    public void TogglePortal()
+    {
+        portalClosed = !portalClosed;
     }
 
     private void OnTriggerExit(Collider other)
