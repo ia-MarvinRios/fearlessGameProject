@@ -47,7 +47,8 @@ public class ScreenRaycast : MonoBehaviour
         if (hit.collider != null)
         {
             if (hit.transform.CompareTag("NPC") || hit.transform.CompareTag("Door") || hit.transform.CompareTag("Hacha") 
-                || hit.transform.CompareTag("Wood"))
+                || hit.transform.CompareTag("Wood") || hit.transform.CompareTag("Llave") || hit.transform.CompareTag("Llave del cobertizo") 
+                || hit.transform.CompareTag("Lampara"))
             {
                 gui3D.IsPointing = true;
             }

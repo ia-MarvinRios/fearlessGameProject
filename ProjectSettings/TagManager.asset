@@ -13,6 +13,8 @@ TagManager:
   - Hacha
   - Wood
   - Lampara
+  - Llave
+  - Llave del cobertizo
   layers:
   - Default
   - TransparentFX
