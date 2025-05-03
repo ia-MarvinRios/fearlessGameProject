@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class PlayerChaser : MonoBehaviour
 {
     [SerializeField] private float detectionRadius = 15f;
     [SerializeField] private Vector3 radiusCenter = Vector3.zero;
     [SerializeField] private string chasingAnimation = "Name";
+
+    [Header("Events")]
+    public UnityEvent onPlayerDetected;
+    public UnityEvent onPlayerLost;
+
     private NavMeshAgent agent;
 
     Animator animator;
@@ -29,6 +35,7 @@ public class PlayerChaser : MonoBehaviour
             Debug.Log("Player detected!");
 
             RotateToTarget(other);
+            onPlayerDetected?.Invoke();
 
             animator.SetBool("PlayerDetected", true);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(chasingAnimation))
@@ -43,7 +50,9 @@ public class PlayerChaser : MonoBehaviour
         {
             // Player is out of the detection range
             Debug.Log("Player lost!");
+            onPlayerLost?.Invoke();
 
+            agent.destination = transform.position; // Stop moving
             animator.SetBool("PlayerDetected", false);
         }
     }

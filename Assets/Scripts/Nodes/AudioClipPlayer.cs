@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,46 +9,89 @@ public class AudioClipPlayer : MonoBehaviour
     public AudioMixerGroup mixerGroup;
     public float cooldownTime = 1f;
 
-    private AudioSource audioSource;
-    private bool isPlaying = false;
+    private AudioSource[] audioSources;
+    private bool[] isPlaying;
     private bool isOnCooldown = false;
+
+    private void Start()
+    {
+        audioSources = new AudioSource[audioClips.Length];
+        isPlaying = new bool[audioClips.Length];
+    }
 
     public void PlayClip(int index)
     {
-        if (!isPlaying)
+        if (index < 0 || index >= audioClips.Length)
+            return;
+
+        if (isPlaying[index])
+            return;
+
+        AudioSource source = gameObject.AddComponent<AudioSource>();
+        source.clip = audioClips[index];
+        source.outputAudioMixerGroup = mixerGroup;
+        source.Play();
+
+        audioSources[index] = source;
+        isPlaying[index] = true;
+
+        StartCoroutine(DestroyAfterPlay(index, source.clip.length));
+    }
+
+    private IEnumerator DestroyAfterPlay(int index, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (audioSources[index] != null)
         {
-            isPlaying = true;
-
-            for (int i = 0; i < audioClips.Length; i++)
-            {
-                if (i == index)
-                {
-                    audioSource = transform.AddComponent<AudioSource>();
-
-                    audioSource.clip = audioClips[i];
-                    audioSource.outputAudioMixerGroup = mixerGroup;
-
-                    audioSource.Play();
-                }
-            }
-
-            isPlaying = false;
+            Destroy(audioSources[index]);
+            audioSources[index] = null;
         }
+        isPlaying[index] = false;
+    }
+
+    public void PlayLoop(int index)
+    {
+        if (index < 0 || index >= audioClips.Length)
+            return;
+
+        if (isPlaying[index])
+            return;
+
+        AudioSource source = gameObject.AddComponent<AudioSource>();
+        source.clip = audioClips[index];
+        source.outputAudioMixerGroup = mixerGroup;
+        source.loop = true;
+        source.Play();
+
+        audioSources[index] = source;
+        isPlaying[index] = true;
+    }
+
+    public void StopLoop(int index)
+    {
+        if (index < 0 || index >= audioClips.Length)
+            return;
+
+        if (audioSources[index] != null)
+        {
+            audioSources[index].Stop();
+            Destroy(audioSources[index]);
+            audioSources[index] = null;
+        }
+        isPlaying[index] = false;
     }
 
     public void PlayClipWithCooldown(int index)
     {
-        StartCoroutine(PlayClipWithCooldownCoroutine(index));
+        if (!isOnCooldown)
+            StartCoroutine(PlayClipWithCooldownCoroutine(index));
     }
 
     private IEnumerator PlayClipWithCooldownCoroutine(int index)
     {
-        if (!isOnCooldown)
-        {
-            isOnCooldown = true;
-            PlayClip(index);
-            yield return new WaitForSeconds(cooldownTime);
-            isOnCooldown = false;
-        }
+        isOnCooldown = true;
+        PlayClip(index);
+        yield return new WaitForSeconds(cooldownTime);
+        isOnCooldown = false;
     }
 }
