@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool interact;
 		public bool crouch;
+		public bool light;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -29,6 +30,10 @@ namespace StarterAssets
 			if (interact)
 			{
 				interact = false;
+			}
+			if (light)
+			{
+				light = false;
 			}
         }
 
@@ -63,6 +68,10 @@ namespace StarterAssets
         {
             CrouchInput(value.isPressed);
         }
+		public void OnLight(InputValue value)
+		{
+			LightInput(value.isPressed);
+		}
 #endif
 
 
@@ -95,6 +104,11 @@ namespace StarterAssets
         {
             crouch = newCrouchState;
         }
+
+		private void LightInput(bool newLightState)
+		{
+			light = newLightState;
+		}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

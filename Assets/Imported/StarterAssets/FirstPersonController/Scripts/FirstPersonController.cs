@@ -85,6 +85,7 @@ namespace StarterAssets
         private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
 		private int _animIDCrouch;
+		private int _animIDFlashlight;
 
 
 #if ENABLE_INPUT_SYSTEM
@@ -163,9 +164,10 @@ namespace StarterAssets
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 			_animIDCrouch = Animator.StringToHash("Crouching");
-        }
+			_animIDFlashlight = Animator.StringToHash("LeftArmActive");
+		}
 
-        private void GroundedCheck()
+		private void GroundedCheck()
 		{
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
@@ -361,6 +363,17 @@ namespace StarterAssets
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDCrouch, false);
+                }
+            }
+		}
+
+		private void ToggleFlashLight()
+		{
+			if (_input.light)
+			{
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDFlashlight, !_animator.GetBool(_animIDFlashlight));
                 }
             }
 		}
