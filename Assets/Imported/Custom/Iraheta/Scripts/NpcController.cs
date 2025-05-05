@@ -174,7 +174,7 @@ public class NpcController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Interactuar.Invoke();
-            FaceTarget(other.transform);
+            StartCoroutine(FaceTarget(other.transform)); // MODIFIED
         }
 
     }
@@ -227,12 +227,22 @@ public class NpcController : MonoBehaviour
     }
 
 
-
-    void FaceTarget(Transform player)
+    // MODIFIED
+    IEnumerator FaceTarget(Transform player)
     {
-        Vector3 direction = (player.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        float time = 0f;
+
+        while (time < 1f)
+        {
+            time += Time.deltaTime;
+            float t = time / 1f;
+
+            Vector3 direction = (player.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, t);
+
+            yield return null;
+        }
     }
 
 
