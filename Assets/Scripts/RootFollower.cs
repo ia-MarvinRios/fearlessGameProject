@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RootFollower : MonoBehaviour
@@ -12,7 +10,7 @@ public class RootFollower : MonoBehaviour
         if (root != null)
         {
             transform.position = root.position;
-            
+
             if (applyRotation)
                 transform.rotation = root.rotation;
         }

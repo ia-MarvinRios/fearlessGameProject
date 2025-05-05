@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2294633876160062807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4341084884661627100}
-  - component: {fileID: 323903178830647932}
-  m_Layer: 8
-  m_Name: TooltipRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4341084884661627100
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294633876160062807}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.024, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5291603267415659940}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &323903178830647932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294633876160062807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f8f7294ffe3dd41934042f3f2b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltipPrefab: {fileID: 4910695126947189074, guid: 9d24a86841c8177408a9e567b41c213c,
-    type: 3}
 --- !u!1 &3247369375528881509
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,8 +34,7 @@ Transform:
   m_LocalPosition: {x: -42.491997, y: 12.4126, z: -13.585}
   m_LocalScale: {x: 1.2799495, y: 1.2799495, z: 1.7192934}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4341084884661627100}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &2047039255511611158

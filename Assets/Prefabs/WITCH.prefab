@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399909643498531614}
-  - component: {fileID: 7609289336201177437}
   - component: {fileID: 2614903629556255795}
   - component: {fileID: 984909929908777013}
-  - component: {fileID: 7612098156994130266}
   m_Layer: 0
   m_Name: WITCH
   m_TagString: Untagged
@@ -36,24 +34,6 @@ Transform:
   - {fileID: 7978245929711909476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &7609289336201177437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969106059275366810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bad02ae5437944b8f92b4b841327e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRadius: 15
-  radiusCenter: {x: 0, y: 1.070867, z: 0}
-  chasingAnimation: Running
-  onPlayerDetected:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!136 &2614903629556255795
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -99,23 +79,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7612098156994130266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969106059275366810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84765c778dc7494388f9d8a92017fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: 725bdcf24574b0449b935c99cbc8aac8, type: 3}
-  mixerGroup: {fileID: -3467312196019334484, guid: f8f8a2147cd5ff84abb9a03be4c5fdfe,
-    type: 2}
-  cooldownTime: 5
 --- !u!1001 &7580355432436358543
 PrefabInstance:
   m_ObjectHideFlags: 0

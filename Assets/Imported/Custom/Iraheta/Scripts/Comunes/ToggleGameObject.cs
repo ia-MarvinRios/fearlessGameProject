@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ToggleGameObject : MonoBehaviour
 {
-    
     public bool _showHideCursor = false; 
     public void ActivarObjeto()
     {
@@ -14,19 +13,5 @@ public class ToggleGameObject : MonoBehaviour
     private void SetCursorState(bool newState)
     {
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-    }
-    
-
-    // Modified
-    public void DestroyGameObject()
-    {
-        Destroy(gameObject);
-    }
-    public void DestroyChildren()
-    {
-       foreach (Transform child in transform)
-       {
-            Destroy(child.gameObject);
-       }
     }
 }

@@ -13,9 +13,9 @@ namespace StarterAssets
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float MoveSpeed = 4.0f;
+		public float MoveSpeed = 5.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
-		public float SprintSpeed = 6.0f;
+		public float SprintSpeed = 8.0f;
         [Tooltip("Sprint speed of the character in m/s")]
         public float CrouchSpeed = 2.0f;
         [Tooltip("Rotation speed of the character")]
@@ -67,7 +67,11 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
-		private bool _canLook = true;
+		// player controller settings
+		float oHeight;
+		float oCenterY;
+
+        private bool _canLook = true;
 		public bool _CanLook { get { return _canLook; } set { _canLook = value; } }
 
 		// timeout deltatime
@@ -79,11 +83,12 @@ namespace StarterAssets
         private int _animIDGrounded;
         private int _animIDJump;
         private int _animIDFreeFall;
-        private int _animIDMotionSpeed;
+		private int _animIDMotionSpeed;
+		private int _animIDCrouch;
 
 
 #if ENABLE_INPUT_SYSTEM
-        private PlayerInput _playerInput;
+		private PlayerInput _playerInput;
 #endif
         private Animator _animator;
         private CharacterController _controller;
@@ -117,8 +122,8 @@ namespace StarterAssets
 
 		private void Start()
 		{
-            _hasAnimator = TryGetComponent(out _animator);
-            _controller = GetComponent<CharacterController>();
+			_hasAnimator = TryGetComponent(out _animator);
+			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
@@ -126,18 +131,23 @@ namespace StarterAssets
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
-            AssignAnimationIDs();
+			AssignAnimationIDs();
 
-            // reset our timeouts on start
-            _jumpTimeoutDelta = JumpTimeout;
+			// reset our timeouts on start
+			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-		}
+
+            // get the original height and center of the controller
+            oHeight = _controller.height;
+            oCenterY = _controller.center.y;
+        }
 
 		private void Update()
 		{
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Crouch();
 		}
 
 		private void LateUpdate()
@@ -152,6 +162,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+			_animIDCrouch = Animator.StringToHash("Crouching");
         }
 
         private void GroundedCheck()
@@ -193,8 +204,17 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            float targetSpeed = MoveSpeed;
+
+            // set target speed based on move speed, sprint speed and if sprint is pressed
+            if (_input.sprint)
+			{
+				targetSpeed = SprintSpeed;
+			}
+			if (_input.crouch)
+			{
+				targetSpeed = CrouchSpeed;
+			}
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -316,6 +336,34 @@ namespace StarterAssets
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
         }
+
+		private void Crouch()
+		{
+			if (_input.crouch)
+			{
+				// reduce the height of the controller and set a new center
+				_controller.height = oHeight / 2;
+				_controller.center = new Vector3(_controller.center.x, oCenterY / 2, _controller.center.z);
+
+				// animations
+				if (_hasAnimator)
+				{
+					_animator.SetBool(_animIDCrouch, true);
+				}
+			}
+			else
+			{
+				// restore the height of the controller and center
+				_controller.height = oHeight;
+				_controller.center = new Vector3(_controller.center.x, oCenterY, _controller.center.z);
+
+				// animations
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDCrouch, false);
+                }
+            }
+		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{

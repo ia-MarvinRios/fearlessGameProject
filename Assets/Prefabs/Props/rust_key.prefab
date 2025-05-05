@@ -32,8 +32,7 @@ Transform:
   m_LocalPosition: {x: -13.074, y: 0.933, z: 38.548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1910561619244271096}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 92.59201, y: 0, z: -85.92801}
 --- !u!33 &514139670029533995
@@ -120,49 +119,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.75
   m_Center: {x: 0, y: -9.313226e-10, z: 0.0000000037252903}
---- !u!1 &5977127747637480028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1910561619244271096}
-  - component: {fileID: 5081521954526630189}
-  m_Layer: 8
-  m_Name: TooltipRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1910561619244271096
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977127747637480028}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.024, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4873504082575994079}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5081521954526630189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977127747637480028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f8f7294ffe3dd41934042f3f2b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltipPrefab: {fileID: 4910695126947189074, guid: 9d24a86841c8177408a9e567b41c213c,
-    type: 3}

@@ -15,7 +15,6 @@ public class InputActionEvent
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerActionsController : MonoBehaviour
 {
-    
     private PlayerInput playerInput;
 
     [SerializeField]
@@ -75,5 +74,4 @@ public class PlayerActionsController : MonoBehaviour
         // Eliminar acciones que ya no existen en el InputActionAsset
         actionEvents.RemoveAll(a => playerInput.actions[a.actionName] == null);
     }
-    
 }
