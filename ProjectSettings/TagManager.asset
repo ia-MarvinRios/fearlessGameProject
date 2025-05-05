@@ -10,13 +10,7 @@ TagManager:
   - NPC
   - ENEMIGO
   - LOOT
-  - Hacha
-  - Wood
-  - Lampara
-  - Llave
-  - Llave H
-  - Obj Duende
-  - Diarios perdidos
+  - Axe
   layers:
   - Default
   - TransparentFX
@@ -26,7 +20,7 @@ TagManager:
   - UI
   - whatIsGround
   - interactObjects
-  - 3DUI
+  - 
   - PLAYER
   - ENEMIGO
   - 

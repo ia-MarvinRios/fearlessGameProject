@@ -4,17 +4,16 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class AmbienceSFX : MonoBehaviour
 {
-    [SerializeField] private AudioClip morningForestAmbience;
-    [SerializeField] private AudioMixerGroup mixerGroup;
+    public AudioClip morningForestAmbience;
+    public AudioClip nightForestAmbience;
+    public AudioMixerGroup ambienceMixerGroup;
 
     private AudioSource audioSource;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = morningForestAmbience;
-        audioSource.loop = true;
-        audioSource.outputAudioMixerGroup = mixerGroup;
+        SetUpAudioClip(morningForestAmbience, ambienceMixerGroup);
     }
 
     private void Update()
@@ -23,5 +22,24 @@ public class AmbienceSFX : MonoBehaviour
         {
             audioSource.Play();
         }
+    }
+
+    private void SetUpAudioClip(AudioClip clip, AudioMixerGroup mxGroup)
+    {
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.outputAudioMixerGroup = mxGroup;
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return audioSource;
+    }
+
+    public void SetClipAndPlay(AudioClip newClip)
+    {
+        audioSource.Stop();
+        audioSource.clip = newClip;
+        audioSource.Play();
     }
 }

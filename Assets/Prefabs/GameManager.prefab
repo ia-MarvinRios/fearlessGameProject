@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 4614139252300749577}
   - component: {fileID: 5106403269113111629}
   - component: {fileID: 3922615847037980334}
-  - component: {fileID: 6000491352103141950}
-  - component: {fileID: 8519973599889016718}
-  - component: {fileID: 5623451690822254793}
-  - component: {fileID: 8324251758239590835}
+  - component: {fileID: 4303435882587029724}
+  - component: {fileID: 2760398864923379121}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -80,17 +78,9 @@ MonoBehaviour:
   uIController: {fileID: 0}
   misiones:
   - _icono: {fileID: 0}
-    nombre: Obtener Hacha
-    selectedTag: Hacha
+    nombre: Recuperar Hacha
+    selectedTag: Axe
     cantidadMeta: 1
-    cantidadRecolectada: 0
-    asignada: 0
-    cerrada: 0
-    npcController: {fileID: 0}
-  - _icono: {fileID: 0}
-    nombre: "Obtener Le\xF1a"
-    selectedTag: Wood
-    cantidadMeta: 10
     cantidadRecolectada: 0
     asignada: 0
     cerrada: 0
@@ -191,7 +181,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6000491352103141950
+--- !u!114 &4303435882587029724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,14 +190,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6363314643093931862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c02864fcf5ad8f4f82844cfce68353a, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ce52e3895eae547a08c6e50ca6ff1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   morningForestAmbience: {fileID: 8300000, guid: 9763dbbcf1e03794abac8f2a94cf283b,
     type: 3}
-  mixerGroup: {fileID: 250944029706863011, guid: f8f8a2147cd5ff84abb9a03be4c5fdfe,
+  nightForestAmbience: {fileID: 8300000, guid: 7e6d26572e9b1414e893b0a844b78574, type: 3}
+  ambienceMixerGroup: {fileID: 250944029706863011, guid: f8f8a2147cd5ff84abb9a03be4c5fdfe,
     type: 2}
---- !u!114 &8519973599889016718
+--- !u!114 &2760398864923379121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,35 +207,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 6363314643093931862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3347f865cbaf4245905862fdf5bba8d, type: 3}
+  m_Script: {fileID: 11500000, guid: fb885af99b7059a4ca9cb3b8913f68f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  interactableLayerMask:
+  rotationDegrees: 18
+  duration: 3
+  targetFogVFinal: 0.25
+  totalSteps: 10
+  sunColorGradient:
     serializedVersion: 2
-    m_Bits: 128
-  maxDistance: 3
---- !u!114 &5623451690822254793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6363314643093931862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42ba98087b85404d86ca0c848019361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8324251758239590835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6363314643093931862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6e34d2665a137469f38435076cccd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    key0: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    key1: {r: 1, g: 0.95184404, b: 0.9009434, a: 1}
+    key2: {r: 1, g: 0.67690665, b: 0.3254717, a: 0}
+    key3: {r: 0.2079922, g: 0.28771287, b: 0.3584906, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 25250
+    ctime2: 55512
+    ctime3: 62644
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  volumeTargetPercent: 0.02
+  onNightEvent:
+    m_PersistentCalls:
+      m_Calls: []
