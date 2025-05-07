@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9047228524410573188}
   - component: {fileID: 6327641668206451267}
   - component: {fileID: 7482339566409710462}
+  - component: {fileID: -2029180658894533516}
   m_Layer: 7
   m_Name: Log
   m_TagString: Wood
@@ -119,3 +120,45 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2029180658894533516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5920686666936499437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d9e276f324fa04498b2c2eda5f5885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+          type: 3}
+        m_TargetAssemblyTypeName: Utilities, Assembly-CSharp
+        m_MethodName: RotateSun
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3435370374759001461, guid: 02071fdd849f2cf4db80c58df41349e4,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+          type: 3}
+        m_TargetAssemblyTypeName: Utilities, Assembly-CSharp
+        m_MethodName: TransitionAmbience
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
