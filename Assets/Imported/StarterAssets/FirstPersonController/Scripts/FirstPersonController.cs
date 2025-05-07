@@ -25,9 +25,12 @@ namespace StarterAssets
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
-        [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+		[Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+		[Space(10)]
+		[Tooltip("The sound played when the player clicks the torch button")]
+		public AudioClip torchClick;
 
-        [Space(10)]
+		[Space(10)]
 		[Tooltip("The height the player can jump")]
 		public float JumpHeight = 1.2f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
@@ -149,6 +152,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Crouch();
+			ToggleFlashLight();
 		}
 
 		private void LateUpdate()
@@ -371,6 +375,8 @@ namespace StarterAssets
 		{
 			if (_input.light)
 			{
+				AudioSource.PlayClipAtPoint(torchClick, transform.TransformPoint(_controller.center), 1);
+
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDFlashlight, !_animator.GetBool(_animIDFlashlight));

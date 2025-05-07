@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &119670711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6363314643093931862, guid: 27490a36e6ed88b438a0827d33b26442,
+    type: 3}
+  m_PrefabInstance: {fileID: 500181701616999099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &119670718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119670711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef46f93f3f3047c419928e927077ac70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1622345719}
+  interactableLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  maxDistance: 3
 --- !u!1 &135409720
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &723248818
 Transform:
   m_ObjectHideFlags: 0
@@ -908,6 +931,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7277674877471567520}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1622345719 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3076557267010066281, guid: 92fe505fc44238e409ca8d0e073a7e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 7277674877471567520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1766870081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1001,27 +1030,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1706222443636504202}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1870969966
-SphereCollider:
+--- !u!114 &1870969971
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870969962}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: -0.5501321, y: 1.1647336, z: 0.06276924}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d6499ef0942874ca9b3b9842eb46c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openAngle: 90
+  openingDuration: 2
+  locked: 0
 --- !u!1 &2020947243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1475,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6363314643093931862, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 119670718}
   m_SourcePrefab: {fileID: 100100000, guid: 27490a36e6ed88b438a0827d33b26442, type: 3}
 --- !u!1001 &1590549233221958089
 PrefabInstance:
@@ -1762,7 +1789,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4023587492717097482, guid: 0d3059b07c39933458efcbbdaac296e9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1870969966}
+      addedObject: {fileID: 1870969971}
   m_SourcePrefab: {fileID: 100100000, guid: 0d3059b07c39933458efcbbdaac296e9, type: 3}
 --- !u!4 &1706222443636504203 stripped
 Transform:
@@ -1906,7 +1933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &7277674877471567520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1925,6 +1952,11 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1360425404337947551, guid: 92fe505fc44238e409ca8d0e073a7e89,
+        type: 3}
+      propertyPath: torchClick
+      value: 
+      objectReference: {fileID: 8300000, guid: fc10674d31fc6184bb8ffc54d72bc766, type: 3}
     - target: {fileID: 1360425404337947551, guid: 92fe505fc44238e409ca8d0e073a7e89,
         type: 3}
       propertyPath: CrouchSpeed
