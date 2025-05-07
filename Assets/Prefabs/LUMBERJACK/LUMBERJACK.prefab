@@ -3110,6 +3110,7 @@ GameObject:
   - component: {fileID: 8008250740220330242}
   - component: {fileID: 3730493025751733579}
   - component: {fileID: 2484269011646902108}
+  - component: {fileID: 6362541271599665821}
   m_Layer: 0
   m_Name: LUMBERJACK
   m_TagString: NPC
@@ -3196,6 +3197,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6362541271599665821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423885558231934585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399aefd098822f9409540e36ecb27a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectSounds:
+  - {fileID: 8300000, guid: 5f6f94f9941a29842a196e748df02300, type: 3}
+  - {fileID: 8300000, guid: 397c699fcd32a7f46acfd2fe8f313d80, type: 3}
+  - {fileID: 8300000, guid: 3cf6dca01550f2448a49a7aee84cda36, type: 3}
 --- !u!1 &7523255222470051965
 GameObject:
   m_ObjectHideFlags: 0

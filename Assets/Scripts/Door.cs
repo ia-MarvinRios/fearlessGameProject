@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Door : MonoBehaviour
     [SerializeField] private float interactionCooldown = 0.5f;
     [Space(5)]
     [SerializeField] private AudioClip openSound;
+
+    [Header("INTERACTION")]
+    [Space(5)]
+    public UnityEvent onDoorClosed;
 
     private bool isRotating = false;
     private bool isOpen = false;
@@ -32,6 +37,7 @@ public class Door : MonoBehaviour
         if (locked)
         {
             Debug.Log("Door is locked.");
+            onDoorClosed?.Invoke();
             return;
         }
         if (!isRotating)
