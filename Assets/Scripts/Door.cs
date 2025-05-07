@@ -10,10 +10,22 @@ public class Door : MonoBehaviour
     [SerializeField] private float openingDuration = 2f;
     [Space(1)]
     [SerializeField] private bool locked = false;
+    [Space(1)]
+    [SerializeField] private float interactionCooldown = 0.5f;
+    [Space(5)]
+    [SerializeField] private AudioClip openSound;
 
     private bool isRotating = false;
+    private bool isOpen = false;
+    Quaternion startRot = Quaternion.identity;
 
     public bool Locked { get { return locked; } set { locked = value; } }
+
+
+    private void Start()
+    {
+        startRot = transform.localRotation;
+    }
 
     public void Interact()
     {
@@ -35,29 +47,41 @@ public class Door : MonoBehaviour
 
     IEnumerator OpenDoor(Vector3 playerPos)
     {
-        Vector3 d = (playerPos - transform.position).normalized;
-        d.y = 0f;
+        isRotating = true;
 
-        float dot = Vector3.Dot(transform.forward, d);
-        float angle = dot > 0 ? openAngle : -openAngle;
+        AudioSource.PlayClipAtPoint(openSound, transform.position);
 
+        Quaternion targetRot = startRot;
         Quaternion initRot = transform.localRotation;
-        Quaternion targetRot = Quaternion.Euler(0f, angle, 0f) * initRot;
+
+        if (!isOpen)
+        {
+            Vector3 d = (playerPos - transform.position).normalized;
+            d.y = 0f;
+
+            float dot = Vector3.Dot(transform.forward, d);
+            float angle = dot > 0 ? -openAngle : openAngle;
+            
+            targetRot = Quaternion.Euler(0f, initRot.eulerAngles.y + angle, 0f);
+            Debug.Log(targetRot.eulerAngles);
+        }
 
         float time = 0f;
         while (time < openingDuration)
         {
-            isRotating = true;
-
             time += Time.deltaTime;
             float t = time / openingDuration;
 
-            transform.rotation = Quaternion.Slerp(initRot, targetRot, t);
+            transform.localRotation = Quaternion.Slerp(initRot, targetRot, t);
 
             yield return null;
         }
 
         transform.localRotation = targetRot;
+        isOpen = !isOpen;
+        
+        yield return new WaitForSeconds(interactionCooldown);
+
         isRotating = false;
     }
 }
