@@ -1,5 +1,6 @@
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameUIBrain : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameUIBrain : MonoBehaviour
     private void Start()
     {
         _controller = FindObjectOfType<FirstPersonController>();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Cementery");
     }
 
     public void ExitGame()
