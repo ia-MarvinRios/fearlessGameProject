@@ -14,8 +14,13 @@ public class ScreenRaycast : MonoBehaviour
 
     // Accesibility
     public RaycastHit Hit { get => hit; }
+
+    // -- EVENTS --
     public delegate void RaycastHitEvent();
     public event RaycastHitEvent OnRaycastHit;
+
+    public delegate void RaycastMissEvent();
+    public event RaycastMissEvent OnRaycastMiss;
 
     private void Start()
     {
@@ -61,6 +66,7 @@ public class ScreenRaycast : MonoBehaviour
         else
         {
             hit = default;
+            OnRaycastMiss?.Invoke();
         }
     }
 

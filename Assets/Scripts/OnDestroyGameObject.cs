@@ -9,4 +9,24 @@ public class OnDestroyGameObject : MonoBehaviour
     {
         onDestroy?.Invoke();
     }
+
+    /// <summary>
+    /// Destroy the game object this script is attached to.
+    /// </summary>
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
+
+    public void DestroyChildrenObjects()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (RectTransform child in transform)
+        {
+           Destroy(child.gameObject);
+        }
+    }
 }

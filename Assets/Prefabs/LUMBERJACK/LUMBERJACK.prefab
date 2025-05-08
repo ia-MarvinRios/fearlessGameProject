@@ -3114,6 +3114,7 @@ GameObject:
   - component: {fileID: 1069581727482102354}
   - component: {fileID: 6362541271599665821}
   - component: {fileID: 3781987069313628635}
+  - component: {fileID: 3924925629341954157}
   m_Layer: 0
   m_Name: LUMBERJACK
   m_TagString: NPC
@@ -3402,6 +3403,21 @@ PlayableDirector:
     value: {fileID: 7423885558231934585}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &3924925629341954157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423885558231934585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d9e276f324fa04498b2c2eda5f5885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7523255222470051965
 GameObject:
   m_ObjectHideFlags: 0

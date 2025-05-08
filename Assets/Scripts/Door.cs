@@ -18,6 +18,8 @@ public class Door : MonoBehaviour
 
     [Header("INTERACTION")]
     [Space(5)]
+    [SerializeField] private GameObject tooltip;
+    [Space(5)]
     public UnityEvent onDoorClosed;
 
     private bool isRotating = false;
@@ -49,6 +51,21 @@ public class Door : MonoBehaviour
             StartCoroutine(OpenDoor(playerPos));
         }
         else return;
+    }
+
+    public void ToggleTooltip()
+    {
+        if (tooltip != null)
+        {
+            tooltip.SetActive(!tooltip.activeSelf);
+        }
+    }
+    public void ShowTooltip()
+    {
+        if (tooltip != null)
+        {
+            tooltip.SetActive(true);
+        }
     }
 
     IEnumerator OpenDoor(Vector3 playerPos)

@@ -11,6 +11,7 @@ TagManager:
   - ENEMIGO
   - LOOT
   - Axe
+  - Log
   layers:
   - Default
   - TransparentFX
