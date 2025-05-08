@@ -1772,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3988961313012560791
 Transform:
   m_ObjectHideFlags: 0
@@ -3091,7 +3091,7 @@ Transform:
   m_GameObject: {fileID: 7248604282661817765}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5163991, y: 14.1864805, z: 4.024253}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3108,9 +3108,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8008250740220330242}
+  - component: {fileID: 2716427588146260251}
   - component: {fileID: 3730493025751733579}
   - component: {fileID: 2484269011646902108}
+  - component: {fileID: 1069581727482102354}
   - component: {fileID: 6362541271599665821}
+  - component: {fileID: 3781987069313628635}
   m_Layer: 0
   m_Name: LUMBERJACK
   m_TagString: NPC
@@ -3134,6 +3137,27 @@ Transform:
   - {fileID: 6113191111988292772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2716427588146260251
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423885558231934585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d2a9920541233384ab2e2123a375b044, type: 3}
+  m_Controller: {fileID: 9100000, guid: 288fc9aafdf96df4e92b24657ba3a2f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3730493025751733579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3146,36 +3170,157 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb09aee740b18342840449b256ff4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _titulo: 
-  _nombreNPC: 
+  _titulo: '{nombre_npc}'
+  _nombreNPC: "Le\xF1ador"
   velocidadEscritura: 0.05
-  _mensajeInicio: 
-  _mensajeAceptada: 
-  _mensajeIncopleta: 
-  _mensajeCompletada: 
-  _mensajeCerrada: 
+  _mensajeInicio: "Buenos d\xEDas, disculpa que te moleste. He perdido mi hacha y
+    no s\xE9 si podr\xEDas ayudarme a encontrarla."
+  _mensajeAceptada: "No deber\xEDa estar muy lejos de esta zona."
+  _mensajeIncopleta: "Parece que no has encontrado el hacha todav\xEDa..."
+  _mensajeCompletada: Muchas gracias por tu ayuda.
+  _mensajeCerrada: "Te veo en la mansi\xF3n Guirola. Est\xE1 al final del camino."
   _misionId: 0
   MisionInicio:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6362541271599665821}
+        m_TargetAssemblyTypeName: ObjectSounds, Assembly-CSharp
+        m_MethodName: PlayOnObjectPos
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   MisionAceptada:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   MisionIncopleta:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6362541271599665821}
+        m_TargetAssemblyTypeName: ObjectSounds, Assembly-CSharp
+        m_MethodName: PlayOnObjectPos
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   MisionCompletada:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6362541271599665821}
+        m_TargetAssemblyTypeName: ObjectSounds, Assembly-CSharp
+        m_MethodName: PlayOnObjectPos
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4430553263900163506}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   MisionCerrada:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3781987069313628635}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Interactuar:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   DejarInteractuar:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &2484269011646902108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3196,7 +3341,30 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.31, z: 0}
+--- !u!136 &1069581727482102354
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423885558231934585}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Height: 1.9772677
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0240757, z: 0}
 --- !u!114 &6362541271599665821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3213,6 +3381,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f6f94f9941a29842a196e748df02300, type: 3}
   - {fileID: 8300000, guid: 397c699fcd32a7f46acfd2fe8f313d80, type: 3}
   - {fileID: 8300000, guid: 3cf6dca01550f2448a49a7aee84cda36, type: 3}
+--- !u!320 &3781987069313628635
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423885558231934585}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: ad354a53bccc8f64894b6b763ff349ea, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2317870939071560381, guid: ad354a53bccc8f64894b6b763ff349ea, type: 2}
+    value: {fileID: 2716427588146260251}
+  - key: {fileID: 3575373170568690789, guid: ad354a53bccc8f64894b6b763ff349ea, type: 2}
+    value: {fileID: 7423885558231934585}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &7523255222470051965
 GameObject:
   m_ObjectHideFlags: 0
