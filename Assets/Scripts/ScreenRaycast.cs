@@ -14,6 +14,8 @@ public class ScreenRaycast : MonoBehaviour
 
     // Accesibility
     public RaycastHit Hit { get => hit; }
+    public delegate void RaycastHitEvent();
+    public event RaycastHitEvent OnRaycastHit;
 
     private void Start()
     {
@@ -54,10 +56,7 @@ public class ScreenRaycast : MonoBehaviour
         if (Physics.Raycast(mainCamera.ScreenPointToRay(screenPoint), out RaycastHit a, maxDistance, interactableLayerMask))
         {
             hit = a;
-
-            // BORRAR
-            Door door = hit.transform.GetComponent<Door>();
-            door.Interact();
+            OnRaycastHit?.Invoke();
         }
         else
         {
