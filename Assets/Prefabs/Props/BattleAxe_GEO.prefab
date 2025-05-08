@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 824869797053425570}
   - component: {fileID: 404512166910110749}
   - component: {fileID: 3411550962206662072}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BattleAxe_GEO
-  m_TagString: Hacha
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

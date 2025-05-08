@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6501639672929804117}
   - component: {fileID: 5906747304535337845}
   - component: {fileID: 6473470795706135804}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Book14
-  m_TagString: Diarios perdidos
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
