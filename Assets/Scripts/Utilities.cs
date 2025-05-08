@@ -29,7 +29,6 @@ public class Utilities : MonoBehaviour
         ambienceSFX = GetComponent<AmbienceSFX>();
     }
 
-
     public void TransitionAmbience()
     {
         if (!isTransitioning)

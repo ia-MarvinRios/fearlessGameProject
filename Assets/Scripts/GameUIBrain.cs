@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameUIBrain : MonoBehaviour
 {
+    /*
     // Singleton
     public static GameUIBrain Instance;
     private void Awake()
@@ -15,7 +16,7 @@ public class GameUIBrain : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
+    */
 
     FirstPersonController _controller;
 
@@ -27,9 +28,23 @@ public class GameUIBrain : MonoBehaviour
         _controller = FindObjectOfType<FirstPersonController>();
     }
 
+    private void OnEnable()
+    {
+        if (SceneManager.GetActiveScene().name == "Cementery")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        Time.timeScale = 1f;
+    }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene("Cementery");
+        SceneManager.LoadScene("Cementery", LoadSceneMode.Single);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void ExitGame()
