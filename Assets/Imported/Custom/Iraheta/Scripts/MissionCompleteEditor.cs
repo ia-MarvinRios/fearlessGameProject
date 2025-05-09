@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
 using static GameManager;
 
+#if (UNITY_EDITOR)
 [CustomEditor(typeof(MissionComplete))]
 public class MissionCompleteEditor : Editor
 {
@@ -31,3 +29,4 @@ public class MissionCompleteEditor : Editor
         }
     }
 }
+#endif

@@ -1,13 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 using System.IO;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.InputSystem;
-using UnityEditor.Animations;
 using UnityEngine.AI;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using Unity.VisualScripting;
+
+
+#if (UNITY_EDITOR)
+using UnityEditor.Animations;
 
 public class IrahetaTools
 {
@@ -654,3 +652,4 @@ public class ConvertirEnemigoWindow : EditorWindow
         }
     }
 }
+#endif

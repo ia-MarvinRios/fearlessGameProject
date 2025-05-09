@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEditor.Events;
 using static GameManager;
 using UnityEngine.Events;
 using TMPro;
@@ -53,7 +52,7 @@ public class MissionComplete : MonoBehaviour
 
 
 
-
+#if (UNITY_EDITOR)
     private void OnGUI()
     {
 
@@ -74,7 +73,7 @@ public class MissionComplete : MonoBehaviour
             
         }
     }
-
+#endif
 
 
 
