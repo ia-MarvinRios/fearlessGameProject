@@ -12,6 +12,7 @@ TagManager:
   - LOOT
   - Axe
   - Log
+  - ShedKey
   layers:
   - Default
   - TransparentFX
