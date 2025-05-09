@@ -725,6 +725,10 @@ MonoBehaviour:
     type: 3}
   nightForestAmbience: {fileID: 0}
   ambienceMixerGroup: {fileID: 0}
+  tracks:
+  - {fileID: 8300000, guid: c26db2afb3b384b42b2fa0079ca44300, type: 3}
+  musicVolume: 0.5
+  replayCooldown: 10
 --- !u!82 &1006465080
 AudioSource:
   m_ObjectHideFlags: 0

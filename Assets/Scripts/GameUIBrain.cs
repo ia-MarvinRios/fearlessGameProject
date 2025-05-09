@@ -34,6 +34,14 @@ public class GameUIBrain : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            AmbienceSFX music = GetComponent<AmbienceSFX>();
+            if (music != null)
+            {
+                StartCoroutine(music.MainMenuMusic());
+            }
+        }
         Time.timeScale = 1f;
     }
 
