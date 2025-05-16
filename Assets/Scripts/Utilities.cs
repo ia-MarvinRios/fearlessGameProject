@@ -10,6 +10,7 @@ public class Utilities : MonoBehaviour
     [SerializeField] float targetFogVFinal = 0.25f;   // Valor final deseado del V del fog
     [SerializeField] int totalSteps = 10;             // Número total de iteraciones previstas
     [SerializeField] Gradient sunColorGradient;       // Gradient que representa el color de la luz solar a lo largo del día
+    [SerializeField] float intensityMultiplier = 0.35f;
 
     private bool isRotating = false;
     private int currentStep = 0;
@@ -117,6 +118,9 @@ public class Utilities : MonoBehaviour
         float reductionPerStep = totalReduction / (totalSteps - currentStep + 1);
         float targetV = Mathf.Max(targetFogVFinal, v - reductionPerStep);
 
+        // --- DARKNESS ---
+        float initMultiplier = RenderSettings.ambientIntensity;
+
         float time = 0f;
         while (time < duration)
         {
@@ -133,6 +137,9 @@ public class Utilities : MonoBehaviour
             // Luz solar con gradient
             float gradientT = (currentStep - 1 + t) / totalSteps;
             sunLight.color = sunColorGradient.Evaluate(gradientT);
+
+            // Oscurecer el ambiente
+            if (currentStep == 9) RenderSettings.ambientIntensity = Mathf.Lerp(initMultiplier, intensityMultiplier, t);
 
             yield return null;
         }
