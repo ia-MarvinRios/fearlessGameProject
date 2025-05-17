@@ -19,8 +19,10 @@ public class GameUIBrain : MonoBehaviour
     */
 
     FirstPersonController _controller;
+    [SerializeField] GameObject _pauseMenu;
 
     private bool isPaused = false;
+    private bool isOptionsMenuOpen = false;
     public bool IsPaused { get { return isPaused; } }
 
     private void Start()
@@ -94,7 +96,18 @@ public class GameUIBrain : MonoBehaviour
         }
         else
         {
-            ResumeGame();
+            if (isOptionsMenuOpen) return;
+            else ResumeGame();
         }
+    }
+
+    public void SetOptionsMenuState(bool state)
+    {
+        isOptionsMenuOpen = state;
+    }
+
+    public void TogglePauseMenu()
+    {
+        if (!isOptionsMenuOpen) _pauseMenu.SetActive(!_pauseMenu.activeSelf); else return;
     }
 }

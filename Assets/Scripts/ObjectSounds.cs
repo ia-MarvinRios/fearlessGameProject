@@ -1,8 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class ObjectSounds : MonoBehaviour
 {
     [SerializeField] AudioClip[] objectSounds;
+    [SerializeField] AudioMixerGroup mixerGroup;
 
     public void PlayOnObjectPos(int index)
     {
@@ -12,9 +14,22 @@ public class ObjectSounds : MonoBehaviour
             {
                 if (i == index)
                 {
-                    AudioSource.PlayClipAtPoint(objectSounds[i], transform.position);
+                    PlaySoundAtPoint(objectSounds[i], transform.position);
                 }
             }
         }
+    }
+
+    public void PlaySoundAtPoint(AudioClip clip, Vector3 position)
+    {
+        GameObject tempGO = new GameObject("TempAudio");
+        tempGO.transform.position = position;
+
+        AudioSource aSource = tempGO.AddComponent<AudioSource>();
+        aSource.clip = clip;
+        aSource.outputAudioMixerGroup = mixerGroup;
+        aSource.Play();
+
+        Destroy(tempGO, clip.length);
     }
 }
