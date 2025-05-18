@@ -25,13 +25,13 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -5701230485139385677}
-    m_Duration: 3
-    m_TimeScale: 2
+    m_Duration: 4
+    m_TimeScale: 1.5
     m_ParentTrack: {fileID: -6552775429432605534}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.3333333333333335
+    m_BlendOutDuration: 0.4666666666666668
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -58,7 +58,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -73,16 +91,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: MutantWalking
   - m_Version: 1
-    m_Start: 2.6666666666666665
+    m_Start: 3.533333333333333
     m_ClipIn: 5.6499999999999995
     m_Asset: {fileID: 4144716717503537703}
-    m_Duration: 1.8333333333333335
-    m_TimeScale: 2
+    m_Duration: 2.444444444444444
+    m_TimeScale: 1.5000000000000002
     m_ParentTrack: {fileID: -6552775429432605534}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.3333333333333335
-    m_BlendOutDuration: 0.16666666666666696
+    m_BlendInDuration: 0.4666666666666668
+    m_BlendOutDuration: 0.4611102619027605
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -106,7 +124,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: MutantWalking
   - m_Version: 1
-    m_Start: 10.35
+    m_Start: 12.933333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 6696691118492493964}
     m_Duration: 1.8333333333333333
@@ -114,29 +132,11 @@ MonoBehaviour:
     m_ParentTrack: {fileID: -6552775429432605534}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.3000000000000007
+    m_BlendInDuration: 0.43333333333333357
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -175,16 +175,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: StandingIdle
   - m_Version: 1
-    m_Start: 4.333333333333333
-    m_ClipIn: 8.983333333333333
+    m_Start: 5.516667515875017
+    m_ClipIn: 8.983333
     m_Asset: {fileID: 1646473973859386573}
-    m_Duration: 6.316666666666667
-    m_TimeScale: 2
+    m_Duration: 7.849999150791649
+    m_TimeScale: 1.6093420000000003
     m_ParentTrack: {fileID: -6552775429432605534}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.16666666666666696
-    m_BlendOutDuration: 0.3000000000000007
+    m_BlendInDuration: 0.4611102619027605
+    m_BlendOutDuration: 0.43333333333333357
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -298,7 +298,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 2110175568540992679}
-    m_Duration: 12.166666666666666
+    m_Duration: 13.366666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1140033770942235307}
     m_EaseInDuration: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 12.166666666666666
+  m_Time: 13.366666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 2a29e7abeeea16e4eb1abe0c85f13961, type: 2}

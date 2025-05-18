@@ -1542,6 +1542,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HOUSE
       objectReference: {fileID: 0}
+    - target: {fileID: 2815249942415776779, guid: 95ceff77177665145bcaa8aa0e97f0bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2832025445150577839, guid: 95ceff77177665145bcaa8aa0e97f0bf,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4632,23 +4637,30 @@ PrefabInstance:
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: _mensajeInicio
-      value: "Gracias por venir hasta ac\xE1. Necesito que me ayudes a recolectar
-        los troncos de madera que he dejado alrededor de esta \xE1rea."
+      value: Dentro del cobertizo tengo linternas pero, creo que me he dejado la
+        llave en el cementerio.
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: _mensajeCerrada
-      value: "\xBFYa tienes hambre?"
+      value: "\xBFYa conseguiste las linternas del cobertizo?"
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: _mensajeAceptada
-      value: Muchas gracias, eres de mucha ayuda para este viejo.
+      value: "Muchas gracias, revisa bien, la habr\xE9 dejado colgada en alguna de
+        las casetas."
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: _mensajeIncopleta
-      value: Parece que solo tienes {cantidad_recolectada} de {cantidad_meta} troncos.
+      value: "Parece que a\xFAn no encuentras la llave."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
+        type: 3}
+      propertyPath: _mensajeCompletada
+      value: "\xA1Perfecto! Ahora puedes utilizar la llave para abrir el cobertizo
+        y tomar las linternas."
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
