@@ -107,4 +107,10 @@ public class Door : MonoBehaviour
 
         isRotating = false;
     }
+
+    public void DoorLocked(bool lockedState)
+    {
+        locked = lockedState;
+        Debug.Log($"Lock State of door: {gameObject.name} has changed to: {locked}");
+    }
 }

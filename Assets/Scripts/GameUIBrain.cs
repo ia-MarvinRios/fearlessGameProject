@@ -1,33 +1,28 @@
 using StarterAssets;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class GameUIBrain : MonoBehaviour
 {
-    /*
-    // Singleton
-    public static GameUIBrain Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+    [Header("Player")]
+    [SerializeField] FirstPersonController _controller;
+    [SerializeField] StarterAssetsInputs _input;
 
-        DontDestroyOnLoad(gameObject);
-    }
-    */
-
-    FirstPersonController _controller;
+    [Header("UI Containers")]
+    [Tooltip("Pause menu canvas or gameobject container")]
     [SerializeField] GameObject _pauseMenu;
+    [SerializeField] GameObject _console;
 
     private bool isPaused = false;
     private bool isOptionsMenuOpen = false;
+    private bool isConsoleOpen = false;
     public bool IsPaused { get { return isPaused; } }
 
-    private void Start()
+    private void Update()
     {
-        _controller = FindObjectOfType<FirstPersonController>();
+        ToggleConsole();
     }
 
     private void OnEnable()
@@ -66,6 +61,7 @@ public class GameUIBrain : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         ToggleCameraState();
 
@@ -75,6 +71,7 @@ public class GameUIBrain : MonoBehaviour
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         ToggleCameraState();
 
@@ -108,6 +105,41 @@ public class GameUIBrain : MonoBehaviour
 
     public void TogglePauseMenu()
     {
-        if (!isOptionsMenuOpen) _pauseMenu.SetActive(!_pauseMenu.activeSelf); else return;
+        if (!isOptionsMenuOpen)
+        {
+            _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+            Cursor.lockState = _pauseMenu.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = _pauseMenu.activeSelf ? true : false;
+        } 
+        else return;
+    }
+
+    public void ToggleConsole()
+    {
+        if (_console != null && _input.console)
+        {
+            if (!isConsoleOpen)
+            {
+                // Activate the console and unlock the cursor
+                _console.SetActive(true);
+                isConsoleOpen = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+                // Deactivate the player controller
+                _controller.enabled = false;
+            }
+            else
+            {
+                // Deactivate the console and lock the cursor
+                _console.SetActive(false);
+                isConsoleOpen = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+                // Reactivate the player controller
+                _controller.enabled = true;
+            }
+        }
     }
 }

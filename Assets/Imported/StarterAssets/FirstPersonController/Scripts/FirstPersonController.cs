@@ -60,6 +60,7 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -69,6 +70,7 @@ namespace StarterAssets
         private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private bool _canMove = true;
 
 		// player controller settings
 		float oHeight;
@@ -148,11 +150,14 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
-			Crouch();
-			ToggleFlashLight();
+			if (_canMove)
+			{
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+                Crouch();
+                ToggleFlashLight();
+            }
 		}
 
 		private void LateUpdate()

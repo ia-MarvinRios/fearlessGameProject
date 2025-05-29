@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool interact;
 		public bool crouch;
 		public bool light;
+		public bool console;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -27,14 +28,10 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-			if (interact)
-			{
-				interact = false;
-			}
-			if (light)
-			{
-				light = false;
-			}
+			if (interact) interact = false;
+			if (light) light = false;
+			if (console) console = false;
+			if (jump) jump = false;
         }
 
         public void OnMove(InputValue value)
@@ -72,6 +69,10 @@ namespace StarterAssets
 		{
 			LightInput(value.isPressed);
 		}
+		public void OnConsole(InputValue value)
+        {
+			ConsoleInput(value.isPressed);
+        }
 #endif
 
 
@@ -109,6 +110,11 @@ namespace StarterAssets
 		{
 			light = newLightState;
 		}
+
+		private void ConsoleInput(bool newConsoleState)
+        {
+            console = newConsoleState;
+        }
 
 		private void OnApplicationFocus(bool hasFocus)
 		{

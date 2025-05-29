@@ -26,6 +26,10 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] Slider fogDensitySlider;
     [SerializeField] TMP_Text fogDensitySliderPercent;
 
+    [Header("FOV")]
+    [SerializeField] Slider fovSlider;
+    [SerializeField] TMP_Text fovSliderPercent;
+
     private void Awake()
     {
         fogDensity = RenderSettings.fogDensity;
@@ -35,19 +39,6 @@ public class OptionsMenu : MonoBehaviour
     private void Start()
     {
         SetUpSettings();
-    }
-
-    private void OnFogDensityChanged(float value)
-    {
-        RenderSettings.fogDensity = Mathf.Lerp(maxFogDensity, fogDensity, value);
-        _Camera.m_Lens.FarClipPlane = Mathf.Lerp(minClipPlane, farClipPlane, value);
-        fogDensitySliderPercent.text = $"{Mathf.Round(fogDensitySlider.value * 100)}%";
-    }
-
-    private void OnVolumeChanged(float value)
-    {
-        _audioMixer.SetFloat("MasterVolume", Mathf.Lerp(minVolume, initVolume, value));
-        volumeSliderPercent.text = $"{Mathf.Round(volumeSlider.value * 100)}%";
     }
 
     private void SetUpSettings()
@@ -63,5 +54,29 @@ public class OptionsMenu : MonoBehaviour
         fogDensitySlider.value = 1f;
         fogDensitySliderPercent.text = $"{fogDensitySlider.value * 100}%";
         fogDensitySlider.onValueChanged.AddListener(OnFogDensityChanged);
+
+        // Set up FOV slider
+        fovSlider.value = 0f;
+        fovSliderPercent.text = $"{Mathf.Round(fovSlider.value * 100)}%";
+        fovSlider.onValueChanged.AddListener(OnFOVChanged);
+    }
+
+    private void OnFogDensityChanged(float value)
+    {
+        RenderSettings.fogDensity = Mathf.Lerp(maxFogDensity, fogDensity, value);
+        _Camera.m_Lens.FarClipPlane = Mathf.Lerp(minClipPlane, farClipPlane, value);
+        fogDensitySliderPercent.text = $"{Mathf.Round(fogDensitySlider.value * 100)}%";
+    }
+
+    private void OnVolumeChanged(float value)
+    {
+        _audioMixer.SetFloat("MasterVolume", Mathf.Lerp(minVolume, initVolume, value));
+        volumeSliderPercent.text = $"{Mathf.Round(volumeSlider.value * 100)}%";
+    }
+    
+    private void OnFOVChanged(float value)
+    {
+        _Camera.m_Lens.FieldOfView = Mathf.Lerp(40f, 100f, value);
+        fovSliderPercent.text = $"{Mathf.Round(fovSlider.value * 100)}%";
     }
 }
