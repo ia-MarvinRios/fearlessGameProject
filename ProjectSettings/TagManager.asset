@@ -13,6 +13,7 @@ TagManager:
   - Axe
   - Log
   - ShedKey
+  - basket
   layers:
   - Default
   - TransparentFX
