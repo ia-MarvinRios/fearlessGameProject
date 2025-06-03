@@ -4,10 +4,19 @@ using UnityEngine.Events;
 public class OnDestroyGameObject : MonoBehaviour
 {
     public UnityEvent onDestroy;
+    public bool doDestroyOnTouch;
 
     private void OnDestroy()
     {
         onDestroy?.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (doDestroyOnTouch && other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
