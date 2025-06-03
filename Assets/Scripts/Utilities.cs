@@ -1,5 +1,8 @@
+using Cinemachine;
+using StarterAssets;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class Utilities : MonoBehaviour
@@ -25,9 +28,28 @@ public class Utilities : MonoBehaviour
     [Header("Eventos Al Anochecer")]
     public UnityEvent onNightEvent;
 
+    [Space(10)]
+    [Header("Misc")]
+    [SerializeField] Transform cameraRoot;
+    [SerializeField] GameObject playerFollowCamera;
+    [SerializeField] Transform witchFace;
+    [SerializeField] Transform witchNeck;
+    [SerializeField] Animator witchAnimator;
+    [SerializeField] Transform jumpscareRoot;
+    [SerializeField] GameObject player;
+    [SerializeField] FirstPersonController firstPController;
+    [SerializeField] AudioClip jumpScare;
+    [SerializeField] AudioMixerGroup jumpscareMixer;
+    bool isGameOver = false;
+
+
     private void Awake()
     {
         ambienceSFX = GetComponent<AmbienceSFX>();
+    }
+    private void Start()
+    {
+        WitchAI.OnWitchCaptured += JumpScare;
     }
 
     public void TransitionAmbience()
@@ -150,5 +172,47 @@ public class Utilities : MonoBehaviour
         sunLight.color = sunColorGradient.Evaluate(currentStep / (float)totalSteps);
 
         isRotating = false;
+    }
+
+    private void JumpScare()
+    {
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            firstPController.enabled = false;
+            player.gameObject.SetActive(false);
+            cameraRoot.GetComponent<RootFollower>().enabled = false;
+          
+            StartCoroutine(JScare());
+
+        }
+    }
+
+    private IEnumerator JScare()
+    {
+        Vector3 lookDir = witchFace.transform.position - cameraRoot.transform.position;
+        AudioSource asource = gameObject.AddComponent<AudioSource>();
+        asource.clip = jumpScare;
+        asource.volume = 1f;
+        asource.outputAudioMixerGroup = jumpscareMixer;
+        asource.Play();
+
+        float time = 0f;
+        while (time < 0.5f)
+        {
+            time += Time.deltaTime;
+            float t = time / 0.5f;
+
+            cameraRoot.transform.position = Vector3.Lerp(cameraRoot.transform.position, jumpscareRoot.position, t);
+            cameraRoot.transform.rotation = Quaternion.LookRotation(lookDir);
+
+            yield return null;
+        }
+
+        cameraRoot.transform.position = jumpscareRoot.position;
+        cameraRoot.transform.rotation = Quaternion.LookRotation(lookDir);
+
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
     }
 }

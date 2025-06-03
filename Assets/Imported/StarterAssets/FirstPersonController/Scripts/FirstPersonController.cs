@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -27,7 +29,11 @@ namespace StarterAssets
         public AudioClip[] FootstepAudioClips;
 		[Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 		[Space(10)]
-		[Tooltip("The sound played when the player clicks the torch button")]
+        [Header("Torch")]
+        public bool torchEnabled = false;
+        public Transform torchObject;
+        public Transform torchLight;
+        [Tooltip("The sound played when the player clicks the torch button")]
 		public AudioClip torchClick;
 
 		[Space(10)]
@@ -378,15 +384,21 @@ namespace StarterAssets
 
 		private void ToggleFlashLight()
 		{
-			if (_input.light)
+			if (_input.light && torchEnabled)
 			{
 				AudioSource.PlayClipAtPoint(torchClick, transform.TransformPoint(_controller.center), 1);
+				torchObject.gameObject.SetActive(!torchObject.gameObject.activeSelf);
+				torchLight.gameObject.SetActive(!torchLight.gameObject.activeSelf);
 
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDFlashlight, !_animator.GetBool(_animIDFlashlight));
                 }
             }
+		}
+		public void SetTorchEnabled(bool state)
+		{
+			torchEnabled = state;
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
