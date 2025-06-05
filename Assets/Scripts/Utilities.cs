@@ -190,29 +190,46 @@ public class Utilities : MonoBehaviour
 
     private IEnumerator JScare()
     {
-        Vector3 lookDir = witchFace.transform.position - cameraRoot.transform.position;
+        // Esperar hasta que la animación actual sea "Idle" en la capa base (índice 0)
+        while (!witchAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle"))
+        {
+            yield return null;
+        }
+
+        // Dirección normalizada desde la cámara hacia la cara de la bruja
+        Vector3 lookDir = (witchFace.transform.position - cameraRoot.transform.position).normalized;
+
+        // Audio
         AudioSource asource = gameObject.AddComponent<AudioSource>();
         asource.clip = jumpScare;
         asource.volume = 1f;
         asource.outputAudioMixerGroup = jumpscareMixer;
         asource.Play();
 
+        // Movimiento y rotación interpolada
+        float duration = 0.25f;
         float time = 0f;
-        while (time < 0.5f)
+
+        Vector3 initPos = cameraRoot.transform.position;
+        Quaternion initRot = cameraRoot.transform.rotation;
+        Quaternion targetRot = Quaternion.LookRotation(lookDir);
+
+        while (time < duration)
         {
             time += Time.deltaTime;
-            float t = time / 0.5f;
+            float t = Mathf.Clamp01(time / duration);
 
-            cameraRoot.transform.position = Vector3.Lerp(cameraRoot.transform.position, jumpscareRoot.position, t);
-            cameraRoot.transform.rotation = Quaternion.LookRotation(lookDir);
+            cameraRoot.transform.position = Vector3.Lerp(initPos, jumpscareRoot.position, t);
+            cameraRoot.transform.rotation = Quaternion.Slerp(initRot, targetRot, t);
 
             yield return null;
         }
-
+        // Asegurar posición y rotación finales exactas
         cameraRoot.transform.position = jumpscareRoot.position;
-        cameraRoot.transform.rotation = Quaternion.LookRotation(lookDir);
+        cameraRoot.transform.rotation = targetRot;
 
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
     }
+
 }

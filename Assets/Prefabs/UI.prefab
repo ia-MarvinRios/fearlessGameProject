@@ -2083,6 +2083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4456052991929489505}
   - component: {fileID: 7581591508533384860}
+  - component: {fileID: 8679942121860474943}
   m_Layer: 5
   m_Name: DoorsTooltip
   m_TagString: Untagged
@@ -2137,6 +2138,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8679942121860474943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231082071230539394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2101fed175ba75a47b2e53023542229c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockedText: "La puerta est\xE1 cerrada..."
+  lockedIcon: {fileID: 21300000, guid: 2f9396a5df5919e43b945582841ec05f, type: 3}
+  unlockedText: '- E -'
+  unlockedIcon: {fileID: 21300000, guid: 983c06f62ccb18f4f90614b5330afd78, type: 3}
 --- !u!1 &2429388033561294591
 GameObject:
   m_ObjectHideFlags: 0

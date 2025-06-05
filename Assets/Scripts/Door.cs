@@ -21,13 +21,12 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject tooltip;
     [Space(5)]
     public UnityEvent onDoorClosed;
-
+    
     private bool isRotating = false;
     private bool isOpen = false;
     Quaternion startRot = Quaternion.identity;
 
     public bool Locked { get { return locked; } set { locked = value; } }
-
 
     private void Start()
     {

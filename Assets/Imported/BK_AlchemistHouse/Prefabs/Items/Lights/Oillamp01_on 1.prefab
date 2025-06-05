@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8693105135183555466}
   - component: {fileID: 5478718940048325402}
-  - component: {fileID: 7880407412034704339}
   - component: {fileID: 8153506981387515507}
   m_Layer: 0
   m_Name: Point light
@@ -96,32 +95,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &7880407412034704339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235645509181626968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dafc90245bfe9e2408e358f71deace2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SampleCount: 4
-  ScatteringCoef: 0.01
-  ExtinctionCoef: 0.1
-  SkyboxExtinctionCoef: 1
-  MieG: 0.9
-  HeightFog: 0
-  HeightScale: 0.1
-  GroundLevel: 0
-  Noise: 0
-  NoiseScale: 0.015
-  NoiseIntensity: 1
-  NoiseIntensityOffset: 0.3
-  NoiseVelocity: {x: 3, y: 3}
-  MaxRayLength: 400
 --- !u!114 &8153506981387515507
 MonoBehaviour:
   m_ObjectHideFlags: 0
