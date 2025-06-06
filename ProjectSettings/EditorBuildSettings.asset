@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cementery.unity
     guid: 3e4fc390f080f874cb8e9ac408f5be68
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 14fed7c319502bf4186ad591ccb24071
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

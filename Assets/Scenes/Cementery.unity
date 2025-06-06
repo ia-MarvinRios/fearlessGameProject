@@ -137556,7 +137556,7 @@ PrefabInstance:
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
@@ -137591,7 +137591,7 @@ PrefabInstance:
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
@@ -137627,7 +137627,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5656482567076204902}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: DejarInteractuar.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -137746,7 +137746,7 @@ PrefabInstance:
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
+      value: LoadCreditsDelayed
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
@@ -137831,7 +137831,7 @@ PrefabInstance:
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
       propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Playables.PlayableDirector, UnityEngine
+      value: GameUIBrain, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}
@@ -137857,6 +137857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MisionAceptada.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
       value: Door, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
+        type: 3}
+      propertyPath: MisionCerrada.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5128973835403304750, guid: f58e35b0cf97afe439272e366e075bdf,
         type: 3}

@@ -54,6 +54,15 @@ public class GameUIBrain : MonoBehaviour
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
+    public void LoadCreditsDelayed(int secs)
+    {
+        StartCoroutine(LoadCreditsDelayedCo(secs));
+    }
+
     public void ExitGame()
     {
         Application.Quit();
@@ -158,5 +167,9 @@ public class GameUIBrain : MonoBehaviour
         yield return new WaitForSeconds(delay);
         FreezeGame();
     }
-
+    private IEnumerator LoadCreditsDelayedCo(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LoadCredits();
+    }
 }
