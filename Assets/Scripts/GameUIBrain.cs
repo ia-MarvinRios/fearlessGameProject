@@ -1,5 +1,6 @@
 using StarterAssets;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
@@ -18,6 +19,7 @@ public class GameUIBrain : MonoBehaviour
     private bool isPaused = false;
     private bool isOptionsMenuOpen = false;
     private bool isConsoleOpen = false;
+    private bool abletoOpen = true;
     public bool IsPaused { get { return isPaused; } }
 
     private void Update()
@@ -67,6 +69,10 @@ public class GameUIBrain : MonoBehaviour
 
         isPaused = true;
     }
+    public void FreezeWithDelay(float time)
+    {
+       StartCoroutine(FreezeCoroutine(time));
+    }
     public void ResumeGame()
     {
         Time.timeScale = 1f;
@@ -102,10 +108,14 @@ public class GameUIBrain : MonoBehaviour
     {
         isOptionsMenuOpen = state;
     }
+    public void SetPMenOpenAvail(bool state)
+    {
+        abletoOpen = state;
+    }
 
     public void TogglePauseMenu()
     {
-        if (!isOptionsMenuOpen)
+        if (!isOptionsMenuOpen && abletoOpen)
         {
             _pauseMenu.SetActive(!_pauseMenu.activeSelf);
             Cursor.lockState = _pauseMenu.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
@@ -142,4 +152,11 @@ public class GameUIBrain : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator FreezeCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        FreezeGame();
+    }
+
 }

@@ -40,6 +40,7 @@ public class Utilities : MonoBehaviour
     [SerializeField] FirstPersonController firstPController;
     [SerializeField] AudioClip jumpScare;
     [SerializeField] AudioMixerGroup jumpscareMixer;
+    public UnityEvent onGameOver;
     bool isGameOver = false;
 
 
@@ -230,6 +231,7 @@ public class Utilities : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
+        onGameOver?.Invoke();
     }
 
 }
