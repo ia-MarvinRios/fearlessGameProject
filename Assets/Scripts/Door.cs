@@ -21,6 +21,7 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject tooltip;
     [Space(5)]
     public UnityEvent onDoorClosed;
+    public UnityEvent onDoorOpened;
     
     private bool isRotating = false;
     private bool isOpen = false;
@@ -101,6 +102,7 @@ public class Door : MonoBehaviour
 
         transform.localRotation = targetRot;
         isOpen = !isOpen;
+        onDoorOpened?.Invoke();
         
         yield return new WaitForSeconds(interactionCooldown);
 
