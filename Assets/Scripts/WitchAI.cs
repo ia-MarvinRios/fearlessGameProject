@@ -11,11 +11,13 @@ public class WitchAI : MonoBehaviour
     public AudioClip chasingMusic;
     public AudioMixerGroup audioMixerGroup;
     public AudioMixerGroup musicMixerGroup;
+    [SerializeField] float cooldown = 10f;
 
     NavMeshAgent agent;
     Animator animator;
     AudioSource aSource;
     AudioSource aSource2;
+    bool isOnCooldown = false;
 
     public delegate void WitchCapturedEvent();
     public static event WitchCapturedEvent OnWitchCaptured;
@@ -41,14 +43,12 @@ public class WitchAI : MonoBehaviour
         {
             agent.destination = other.transform.position;
             animator.SetFloat("Speed", agent.velocity.magnitude);
-            if (!aSource.isPlaying)
+            if (!isOnCooldown)
             {
                 aSource.Play();
-            }
-            if (!aSource2.isPlaying)
-            {
-                aSource2.volume = 0.5f;
                 aSource2.Play();
+                isOnCooldown = true;
+                StartCoroutine(CooldownRoutine());
             }
 
             if ((other.transform.position - transform.position).magnitude < 2f)
@@ -107,6 +107,12 @@ public class WitchAI : MonoBehaviour
 
         aSource2.volume = 0f; // Asegura que volumen quede a 0
         aSource2.Stop();
+    }
+
+    IEnumerator CooldownRoutine()
+    {
+        yield return new WaitForSeconds(cooldown);
+        isOnCooldown = false;
     }
 
 }
