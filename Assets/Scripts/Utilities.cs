@@ -32,6 +32,7 @@ public class Utilities : MonoBehaviour
     [Header("Misc")]
     [SerializeField] Transform cameraRoot;
     [SerializeField] GameObject playerFollowCamera;
+    [SerializeField] Transform witch;
     [SerializeField] Transform witchFace;
     [SerializeField] Transform witchNeck;
     [SerializeField] Animator witchAnimator;
@@ -50,6 +51,7 @@ public class Utilities : MonoBehaviour
     }
     private void Start()
     {
+        WitchAI.OnWitchRespawn += RespawnWitch;
         WitchAI.OnWitchCaptured += JumpScare;
     }
 
@@ -232,6 +234,17 @@ public class Utilities : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
         onGameOver?.Invoke();
+    }
+
+    void RespawnWitch(Transform r)
+    {
+        witch.position = r.position;
+        StartCoroutine(WaitRespawnTime(2f));
+    }
+    IEnumerator WaitRespawnTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+        witch.gameObject.SetActive(true);
     }
 
 }

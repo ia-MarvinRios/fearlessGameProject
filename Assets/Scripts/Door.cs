@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
     [Header("INTERACTION")]
     [Space(5)]
     [SerializeField] private GameObject tooltip;
+    [SerializeField] private GameObject lockedTooltip;
     [Space(5)]
     public UnityEvent onDoorClosed;
     public UnityEvent onDoorOpened;
@@ -55,17 +56,29 @@ public class Door : MonoBehaviour
 
     public void ToggleTooltip()
     {
-        if (tooltip != null)
+        if (tooltip != null && lockedTooltip != null)
         {
-            tooltip.SetActive(!tooltip.activeSelf);
+            tooltip.SetActive(false);
+            lockedTooltip.SetActive(false);
         }
     }
     public void ShowTooltip()
     {
-        if (tooltip != null)
+        if (tooltip != null && lockedTooltip != null)
         {
-            tooltip.SetActive(true);
+            if (locked)
+            {
+                tooltip.SetActive(false);
+                lockedTooltip.SetActive(true);
+            }
+            else
+            {
+                tooltip.SetActive(true);
+                lockedTooltip.SetActive(false);
+            }
         }
+        else
+            Debug.LogWarning("Tooltip or Locked Tooltip is not assigned in the inspector.");
     }
 
     IEnumerator OpenDoor(Vector3 playerPos)

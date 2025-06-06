@@ -12,6 +12,7 @@ public class WitchAI : MonoBehaviour
     public AudioMixerGroup audioMixerGroup;
     public AudioMixerGroup musicMixerGroup;
     [SerializeField] float cooldown = 10f;
+    public Transform respawnPos;
 
     NavMeshAgent agent;
     Animator animator;
@@ -20,6 +21,8 @@ public class WitchAI : MonoBehaviour
     bool isOnCooldown = false;
 
     public delegate void WitchCapturedEvent();
+    public delegate void WitchRespawnEvent(Transform respawnPos);
+    public static event WitchRespawnEvent OnWitchRespawn;
     public static event WitchCapturedEvent OnWitchCaptured;
 
     void Start()
@@ -29,6 +32,11 @@ public class WitchAI : MonoBehaviour
         aSource = gameObject.AddComponent<AudioSource>();
         aSource2 = gameObject.AddComponent<AudioSource>();
         SetUpASources();
+    }
+
+    private void OnDisable()
+    {
+        OnWitchRespawn?.Invoke(respawnPos);
     }
 
     private void OnTriggerEnter(Collider other)
