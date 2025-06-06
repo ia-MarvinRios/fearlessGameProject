@@ -1,5 +1,7 @@
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 [RequireComponent(typeof(ScreenRaycast))]
 public class RaycastEvents : MonoBehaviour
@@ -9,12 +11,21 @@ public class RaycastEvents : MonoBehaviour
     [SerializeField] private ScreenRaycast scrRaycast;
     [SerializeField] StarterAssetsInputs input;
 
+    PlayerInput playerInput;
     Door door = null;
+    GoblinAI goblin = null;
+
+    private void Awake()
+    {
+        playerInput = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
+    }
 
     void Start()
     {
         scrRaycast.OnRaycastHit += CheckHit;
         scrRaycast.OnRaycastMiss += CheckMiss;
+
+        GoblinAI.OnGoblinAttack += GoblinAway;
     }
 
     private void OnDestroy()
@@ -37,8 +48,9 @@ public class RaycastEvents : MonoBehaviour
                     if (input.interact) { door.Interact(); }
                     break;
 
-                case "Enemy":
-                    Debug.Log("Hit an enemy: " + scrRaycast.Hit.collider.name);
+                case "GOBLIN":
+                    goblin = scrRaycast.Hit.collider.GetComponent<GoblinAI>();
+                    goblin.IsPlayerLooking = true;
                     break;
 
                 default:
@@ -58,8 +70,22 @@ public class RaycastEvents : MonoBehaviour
             door.ToggleTooltip();
             door = null;
         }
+        // -- GOBLIN --
+        else if (goblin != null)
+        {
+            goblin.IsPlayerLooking = false;
+            goblin = null;
+        }
         else
             return;
+    }
+
+    void GoblinAway()
+    {
+        if (goblin != null && playerInput.actions["Light"].IsPressed())
+        {
+            Destroy(goblin.gameObject);
+        }
     }
 
 }

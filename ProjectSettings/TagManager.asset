@@ -16,6 +16,7 @@ TagManager:
   - basket
   - Housekey
   - book
+  - GOBLIN
   layers:
   - Default
   - TransparentFX

@@ -152,6 +152,7 @@ namespace StarterAssets
             // get the original height and center of the controller
             oHeight = _controller.height;
             oCenterY = _controller.center.y;
+
         }
 
 		private void Update()
