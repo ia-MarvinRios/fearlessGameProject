@@ -15,6 +15,7 @@ TagManager:
   - ShedKey
   - basket
   - Housekey
+  - book
   layers:
   - Default
   - TransparentFX
