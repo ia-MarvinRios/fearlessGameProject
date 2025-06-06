@@ -20,6 +20,18 @@ public class ObjectSounds : MonoBehaviour
         }
     }
 
+    public void PlayGlobal(int index)
+    {
+        if (objectSounds.Length > 0)
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            AudioSource sc = gm.gameObject.AddComponent<AudioSource>();
+            sc.clip = objectSounds[index];
+            sc.outputAudioMixerGroup = mixerGroup;
+            sc.Play();
+        }
+    }
+
     public void PlaySoundAtPoint(AudioClip clip, Vector3 position)
     {
         GameObject tempGO = new GameObject("TempAudio");
