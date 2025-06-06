@@ -360,17 +360,6 @@
                     "action": "Light",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "61b32e7a-a293-4fbf-ba99-35ba34cdc253",
-                    "path": "<Keyboard>/f1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";KeyboardMouse",
-                    "action": "Console",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
