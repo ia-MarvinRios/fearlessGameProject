@@ -5,6 +5,7 @@ public class ObjectSounds : MonoBehaviour
 {
     [SerializeField] AudioClip[] objectSounds;
     [SerializeField] AudioMixerGroup mixerGroup;
+    AudioSource sc;
 
     public void PlayOnObjectPos(int index)
     {
@@ -22,14 +23,19 @@ public class ObjectSounds : MonoBehaviour
 
     public void PlayGlobal(int index)
     {
-        if (objectSounds.Length > 0)
+        if (objectSounds.Length > 0 && !sc.isPlaying)
         {
             GameManager gm = FindObjectOfType<GameManager>();
-            AudioSource sc = gm.gameObject.AddComponent<AudioSource>();
+            sc = gm.gameObject.AddComponent<AudioSource>();
             sc.clip = objectSounds[index];
             sc.outputAudioMixerGroup = mixerGroup;
             sc.Play();
         }
+    }
+
+    public void StopGlobal()
+    {
+        sc.Stop();
     }
 
     public void PlaySoundAtPoint(AudioClip clip, Vector3 position)
