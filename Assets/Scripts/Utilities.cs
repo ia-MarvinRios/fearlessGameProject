@@ -1,9 +1,11 @@
 using Cinemachine;
 using StarterAssets;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class Utilities : MonoBehaviour
 {
@@ -29,7 +31,7 @@ public class Utilities : MonoBehaviour
     public UnityEvent onNightEvent;
 
     [Space(10)]
-    [Header("Misc")]
+    [Header("Witch")]
     [SerializeField] Transform cameraRoot;
     [SerializeField] GameObject playerFollowCamera;
     [SerializeField] Transform witch;
@@ -113,11 +115,6 @@ public class Utilities : MonoBehaviour
         isTransitioning = false;
     }
 
-
-
-
-
-
     public void RotateSun(GameObject directionalLight)
     {
         if (directionalLight != null && !isRotating && currentStep < totalSteps)
@@ -177,6 +174,10 @@ public class Utilities : MonoBehaviour
         isRotating = false;
     }
 
+
+
+
+    //-------------------------------------Witch------------------------------------------------------
     private void JumpScare()
     {
         if (!isGameOver)
@@ -185,12 +186,11 @@ public class Utilities : MonoBehaviour
             firstPController.enabled = false;
             player.gameObject.SetActive(false);
             cameraRoot.GetComponent<RootFollower>().enabled = false;
-          
+
             StartCoroutine(JScare());
 
         }
     }
-
     private IEnumerator JScare()
     {
         // Esperar hasta que la animación actual sea "Idle" en la capa base (índice 0)
@@ -247,4 +247,5 @@ public class Utilities : MonoBehaviour
         witch.gameObject.SetActive(true);
     }
 
+    //------------------------------------------------------------------------------------------------
 }

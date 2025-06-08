@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -29,6 +30,11 @@ public class OptionsMenu : MonoBehaviour
     [Header("FOV")]
     [SerializeField] Slider fovSlider;
     [SerializeField] TMP_Text fovSliderPercent;
+
+    [Header("Presets Settings")]
+    [SerializeField] TMP_Dropdown presetsDropdown;
+    [SerializeField] Light dirLight;
+    [SerializeField] RenderPipelineAsset[] renderPresets;
 
     private void Awake()
     {
@@ -78,5 +84,38 @@ public class OptionsMenu : MonoBehaviour
     {
         _Camera.m_Lens.FieldOfView = Mathf.Lerp(40f, 100f, value);
         fovSliderPercent.text = $"{Mathf.Round(fovSlider.value * 100)}%";
+    }
+
+    public void PresetsControl()
+    {
+        switch (presetsDropdown.value)
+        {
+            case 0:
+                print("High Preset");
+                dirLight.shadows = LightShadows.Soft;
+                GraphicsSettings.renderPipelineAsset = renderPresets[0];
+                QualitySettings.renderPipeline = renderPresets[0];
+                fogDensitySlider.value = 1f;
+                OnFogDensityChanged(1f);
+                break;
+            case 1:
+                print("Medium Preset");
+                dirLight.shadows = LightShadows.Hard;
+                GraphicsSettings.renderPipelineAsset = renderPresets[1];
+                QualitySettings.renderPipeline = renderPresets[1];
+                fogDensitySlider.value = 0.5f;
+                OnFogDensityChanged(0.5f);
+                break;
+            case 2:
+                print("Low Preset");
+                dirLight.shadows = LightShadows.None;
+                GraphicsSettings.renderPipelineAsset = renderPresets[2];
+                QualitySettings.renderPipeline = renderPresets[2];
+                fogDensitySlider.value = 0.1f;
+                OnFogDensityChanged(0.1f);
+                break;
+            default:
+                break;
+        }
     }
 }
