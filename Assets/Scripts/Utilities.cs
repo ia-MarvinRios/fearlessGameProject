@@ -6,10 +6,14 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Utilities : MonoBehaviour
 {
+    [SerializeField] PlayerData playerData;
+
     [Header("Sun Rotation Settings")]
+    [SerializeField] GameObject dirLight;             // Objeto de luz direccional
     [SerializeField] float rotationDegrees = 18f;     // Grados por rotación
     [SerializeField] float duration = 3f;             // Tiempo de transición
     [SerializeField] float targetFogVFinal = 0.25f;   // Valor final deseado del V del fog
@@ -39,7 +43,8 @@ public class Utilities : MonoBehaviour
     [SerializeField] Transform witchNeck;
     [SerializeField] Animator witchAnimator;
     [SerializeField] Transform jumpscareRoot;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerModel;
+    [SerializeField] Transform player;
     [SerializeField] FirstPersonController firstPController;
     [SerializeField] AudioClip jumpScare;
     [SerializeField] AudioMixerGroup jumpscareMixer;
@@ -53,6 +58,12 @@ public class Utilities : MonoBehaviour
     }
     private void Start()
     {
+        if (playerData.doSave)
+        {
+            CheckMissionTime();
+            RespawnPlayer();
+        }
+
         WitchAI.OnWitchRespawn += RespawnWitch;
         WitchAI.OnWitchCaptured += JumpScare;
     }
@@ -174,7 +185,37 @@ public class Utilities : MonoBehaviour
         isRotating = false;
     }
 
+    
+    public void SetNightTime()
+    {
+        Light sunLight = dirLight.GetComponent<Light>();
 
+        dirLight.transform.rotation = Quaternion.Euler(-142,-90, 0);
+        RenderSettings.fogColor = Color.HSVToRGB(0.57f, 0.20f, 0.29f);
+        sunLight.color = sunColorGradient.Evaluate(1);
+        RenderSettings.ambientIntensity = 0.35f;
+    }
+    public void SetDayTime()
+    {
+        Light sunLight = dirLight.GetComponent<Light>();
+
+        dirLight.transform.rotation = Quaternion.Euler(38, -90, 0);
+        RenderSettings.fogColor = new Color(151, 172, 188);
+        sunLight.color = new Color(255, 244, 214);
+    }
+    private void CheckMissionTime()
+    {
+        if (playerData.CurrentMission > 2)
+        {
+            SetNightTime();
+            onNightEvent?.Invoke();
+        }
+    }
+    private void RespawnPlayer()
+    {
+        player.transform.position = playerData.respawnPos;
+        player.GetComponent<FirstPersonController>().torchEnabled = playerData.CurrentMission > 3;
+    }
 
 
     //-------------------------------------Witch------------------------------------------------------

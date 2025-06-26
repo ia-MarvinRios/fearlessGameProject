@@ -17,6 +17,8 @@ public class OptionsMenu : MonoBehaviour
     float farClipPlane = 150f;
     float minClipPlane = 30f;
 
+    [SerializeField] PlayerData playerData;
+
     [Header("Volume")]
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] Slider volumeSlider;
@@ -49,6 +51,12 @@ public class OptionsMenu : MonoBehaviour
 
     private void SetUpSettings()
     {
+        //Set up presets dropdown
+        string preset = playerData.RenderPreset.ToString();
+        int index = presetsDropdown.options.FindIndex(option => option.text == preset);
+        presetsDropdown.value = index;
+        presetsDropdown.RefreshShownValue();
+
         // Set up volume slider
         volumeSlider.value = 1f;
         _audioMixer.GetFloat("MasterVolume", out initVolume);
@@ -92,6 +100,7 @@ public class OptionsMenu : MonoBehaviour
         {
             case 0:
                 print("High Preset");
+                playerData.RenderPreset = RenderPreset.High;
                 dirLight.shadows = LightShadows.Soft;
                 GraphicsSettings.renderPipelineAsset = renderPresets[0];
                 QualitySettings.renderPipeline = renderPresets[0];
@@ -100,6 +109,7 @@ public class OptionsMenu : MonoBehaviour
                 break;
             case 1:
                 print("Medium Preset");
+                playerData.RenderPreset = RenderPreset.Medium;
                 dirLight.shadows = LightShadows.Hard;
                 GraphicsSettings.renderPipelineAsset = renderPresets[1];
                 QualitySettings.renderPipeline = renderPresets[1];
@@ -108,6 +118,7 @@ public class OptionsMenu : MonoBehaviour
                 break;
             case 2:
                 print("Low Preset");
+                playerData.RenderPreset = RenderPreset.Low;
                 dirLight.shadows = LightShadows.None;
                 GraphicsSettings.renderPipelineAsset = renderPresets[2];
                 QualitySettings.renderPipeline = renderPresets[2];

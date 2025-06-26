@@ -12323,6 +12323,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 197734781}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &198207005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7423885558231934585, guid: 456c3d64eca03fa4b9acd3c46509dcb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1590549233221958089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &202932132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65196,7 +65202,7 @@ PrefabInstance:
     - target: {fileID: 1804530547986392692, guid: 0971fe17195421040883fe9639ef2e76,
         type: 3}
       propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1804530547986392692, guid: 0971fe17195421040883fe9639ef2e76,
         type: 3}
@@ -93536,6 +93542,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1391943328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3308011872450535286, guid: 92fe505fc44238e409ca8d0e073a7e89,
+    type: 3}
+  m_PrefabInstance: {fileID: 7277674877471567520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1394723973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109385,7 +109397,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1590549233221958089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 198207005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cb09aee740b18342840449b256ff4b0, type: 3}
@@ -109403,7 +109415,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1590549233221958089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 198207005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 399aefd098822f9409540e36ecb27a1d, type: 3}
@@ -138540,12 +138552,12 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1179120866}
+      objectReference: {fileID: 1391943328}
     - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: dirLight
       value: 
-      objectReference: {fileID: 1004008410463934042}
+      objectReference: {fileID: 297698005010550178}
     - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: jumpScare
@@ -138566,6 +138578,17 @@ PrefabInstance:
       propertyPath: cameraRoot
       value: 
       objectReference: {fileID: 957946806}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: beafa6963f7a32740be671ec23ea9c07,
+        type: 2}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1179120866}
     - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: playerCamera
@@ -138602,6 +138625,41 @@ PrefabInstance:
       propertyPath: playerFollowCamera
       value: 
       objectReference: {fileID: 108661853}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[0]
+      value: 
+      objectReference: {fileID: 198207005}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1099999096}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1269866272}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1887063328}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[4]
+      value: 
+      objectReference: {fileID: 318190194}
+    - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2143508116}
     - target: {fileID: 2760398864923379121, guid: 27490a36e6ed88b438a0827d33b26442,
         type: 3}
       propertyPath: renderPresets.Array.size
@@ -140079,7 +140137,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1590549233221958089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 198207005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d9e276f324fa04498b2c2eda5f5885, type: 3}
@@ -140849,6 +140907,31 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5468918010687515019, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468918010687515019, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5656482567076204902}
+    - target: {fileID: 5468918010687515019, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468918010687515019, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameUIBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468918010687515019, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5507976026055028314, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -140921,9 +141004,55 @@ PrefabInstance:
       objectReference: {fileID: 1391943320}
     - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
+      propertyPath: doSave
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: beafa6963f7a32740be671ec23ea9c07,
+        type: 2}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
       propertyPath: _controller
       value: 
       objectReference: {fileID: 1391943327}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[0]
+      value: 
+      objectReference: {fileID: 198207005}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1099999096}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1269866272}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1887063328}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[4]
+      value: 
+      objectReference: {fileID: 318190194}
+    - target: {fileID: 6265642324907263144, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: inGameNPCs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2143508116}
     - target: {fileID: 6301521649834310825, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -141386,6 +141515,12 @@ PrefabInstance:
       propertyPath: dirLight
       value: 
       objectReference: {fileID: 1004008410463934042}
+    - target: {fileID: 8742557970892422387, guid: 042de1934e0e549439a866b5d616e69b,
+        type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: beafa6963f7a32740be671ec23ea9c07,
+        type: 2}
     - target: {fileID: 8742557970892422387, guid: 042de1934e0e549439a866b5d616e69b,
         type: 3}
       propertyPath: presetsDropdown

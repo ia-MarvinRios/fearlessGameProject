@@ -7,6 +7,8 @@ using UnityEngine.Windows;
 
 public class GameUIBrain : MonoBehaviour
 {
+    [SerializeField] PlayerData playerData;
+
     [Header("Player")]
     [SerializeField] FirstPersonController _controller;
     [SerializeField] StarterAssetsInputs _input;
@@ -15,6 +17,9 @@ public class GameUIBrain : MonoBehaviour
     [Tooltip("Pause menu canvas or gameobject container")]
     [SerializeField] GameObject _pauseMenu;
     [SerializeField] GameObject _console;
+
+    [Header("NPCs")]
+    [SerializeField] GameObject[] inGameNPCs;
 
     private bool isPaused = false;
     private bool isOptionsMenuOpen = false;
@@ -42,6 +47,15 @@ public class GameUIBrain : MonoBehaviour
             }
         }
         Time.timeScale = 1f;
+    }
+
+    void Start()
+    {
+        if (playerData.doSave)
+        {
+            SetActiveNPC();
+            UpdatePlayerData();
+        }
     }
 
     public void PlayGame()
@@ -171,5 +185,47 @@ public class GameUIBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         LoadCredits();
+    }
+
+    public void RestartGame()
+    {
+        UpdatePlayerData();
+
+        SceneManager.LoadScene("Cementery", LoadSceneMode.Single);
+    }
+
+    public void UpdatePlayerData()
+    {
+        if (playerData.doSave)
+        {
+
+            // Current Mission
+            for (int i = 0; i < inGameNPCs.Length; i++)
+            {
+                if (inGameNPCs[i] != null && inGameNPCs[i].activeSelf)
+                {
+                    playerData.CurrentMission = int.TryParse(inGameNPCs[i].name.Substring(10, 2), out int number) ? number : 1;
+                }
+            }
+
+            // Torch
+            playerData.TorchUnlocked = playerData.CurrentMission > 3;
+
+        }
+        else
+            playerData.CurrentMission = 1; 
+    }
+
+    private void SetActiveNPC()
+    {
+        for (int i = 0; i < inGameNPCs.Length; i++)
+        {
+            if (int.Parse(inGameNPCs[i].name.Substring(10, 2)) != playerData.CurrentMission)
+            {
+                inGameNPCs[i].SetActive(false);
+            }
+            else
+                inGameNPCs[i].SetActive(true);
+        }
     }
 }
