@@ -102,7 +102,7 @@ public class OptionsMenu : MonoBehaviour
                 print("High Preset");
                 playerData.RenderPreset = RenderPreset.High;
                 dirLight.shadows = LightShadows.Soft;
-                GraphicsSettings.renderPipelineAsset = renderPresets[0];
+                GraphicsSettings.defaultRenderPipeline = renderPresets[0];
                 QualitySettings.renderPipeline = renderPresets[0];
                 fogDensitySlider.value = 1f;
                 OnFogDensityChanged(1f);
@@ -111,7 +111,7 @@ public class OptionsMenu : MonoBehaviour
                 print("Medium Preset");
                 playerData.RenderPreset = RenderPreset.Medium;
                 dirLight.shadows = LightShadows.Hard;
-                GraphicsSettings.renderPipelineAsset = renderPresets[1];
+                GraphicsSettings.defaultRenderPipeline = renderPresets[1];
                 QualitySettings.renderPipeline = renderPresets[1];
                 fogDensitySlider.value = 0.5f;
                 OnFogDensityChanged(0.5f);
@@ -120,7 +120,7 @@ public class OptionsMenu : MonoBehaviour
                 print("Low Preset");
                 playerData.RenderPreset = RenderPreset.Low;
                 dirLight.shadows = LightShadows.None;
-                GraphicsSettings.renderPipelineAsset = renderPresets[2];
+                GraphicsSettings.defaultRenderPipeline = renderPresets[2];
                 QualitySettings.renderPipeline = renderPresets[2];
                 fogDensitySlider.value = 0.1f;
                 OnFogDensityChanged(0.1f);

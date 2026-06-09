@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 10
 --- !u!114 &-3308428328612735075
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -45,7 +45,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -127,3 +128,4 @@ Material:
     - _WoodBorder: {r: 0.9339623, g: 0.65962404, b: 0.4440726, a: 0}
     - _WoodBorder_Saturacion: {r: 0.12793832, g: 0.11263797, b: 0.13207549, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
